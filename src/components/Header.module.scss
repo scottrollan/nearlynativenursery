@@ -1,0 +1,12 @@
+@import '../styles/custom-media.scss';
+
+.dropdownLink {
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+  color: var(--normal-font-color);
+}
+.dropdownLink:hover {
+  background-color: var(--lightest-gray);
+  color: var(--nnn-green);
+}

@@ -1,0 +1,28 @@
+@import '../styles/custom-media.scss';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2vh 0;
+  z-index: 999;
+  height: $footer-height;
+}
+.followUs {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 25% 1vh;
+  font-size: 36px;
+  color: var(--nnn-green);
+}
+.copyright {
+  font-size: small;
+}
+@media screen and (max-width: $breakpoint-medium) {
+  .followUs {
+    padding: 2vh 10% 1vh;
+  }
+}

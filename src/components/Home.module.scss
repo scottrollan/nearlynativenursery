@@ -1,0 +1,51 @@
+@import '../styles/custom-media.scss';
+
+.parallaxHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url('../media/N3man.png');
+  height: 120vh;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallaxHome > div {
+  background: linear-gradient(
+    to left,
+    #ffffff,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.9) 90%,
+    #fff 100%
+  );
+  padding: 2vh 10%;
+}
+.blinking {
+  color: black;
+  animation: blink 1.5s linear 6;
+  font-style: italic;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.readMore {
+  color: var(--nnn-green);
+}
+@media screen and (max-width: $breakpoint-small) {
+  .blinking {
+    color: var(--nnn-orange);
+    animation: blink 1.5s linear 6;
+    font-style: italic;
+  }
+}
