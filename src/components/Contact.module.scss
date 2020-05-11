@@ -1,0 +1,44 @@
+@import '../styles/custom-properties.css';
+@import '../styles/custom-media.scss';
+
+.contact {
+  display: grid;
+  grid-template-columns: 200px 4vw auto;
+  grid-template-rows: 2vh auto auto 4vw auto;
+  grid-template-areas:
+    '    .    .     .'
+    'address  .   form'
+    'address  .   form'
+    '   hr    hr   hr'
+    'pic     pic  pic';
+  text-align: left;
+}
+
+.pic {
+  grid-area: pic;
+}
+.form {
+  grid-area: form;
+}
+.address {
+  grid-area: address;
+}
+.hr {
+  grid-area: hr;
+  visibility: hidden;
+  width: 100%;
+}
+@media screen and (max-width: $breakpoint-medium) {
+  .contact {
+    grid-template-columns: 200px 4vw auto;
+    grid-template-rows: 2vh auto 4vw auto;
+    grid-template-areas:
+      '.       .     .'
+      'form    form  form'
+      'hr      hr    hr'
+      'address pic   pic';
+  }
+  .hr {
+    visibility: visible;
+  }
+}

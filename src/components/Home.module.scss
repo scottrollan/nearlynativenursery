@@ -4,14 +4,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-image: url('../media/N3man.png');
-  height: 120vh;
+  background-image: url('../media/yellowEchinacea.jpg');
+  height: auto;
+  min-height: 120vh;
+  width: 100%;
+  padding: 2vh 0;
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .parallaxHome > div {
+  align-self: flex-end;
+  width: 45%;
+  border-radius: 10px 0 0 10px;
   background: linear-gradient(
     to left,
     #ffffff,
@@ -20,18 +27,30 @@
     rgba(255, 255, 255, 0.9) 90%,
     #fff 100%
   );
-  padding: 2vh 10%;
+  padding: 2vh 10px;
 }
+
+.parallaxHome > div:nth-child(odd) {
+  align-self: flex-start;
+  border-radius: 0 10px 10px 0;
+}
+
 .blinking {
   color: black;
-  animation: blink 1.5s linear 6;
+  animation: blink 1.5s linear infinite;
   font-style: italic;
 }
 @keyframes blink {
   0% {
-    opacity: 0;
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.5;
   }
   50% {
+    opacity: 0;
+  }
+  75% {
     opacity: 0.5;
   }
   100% {
@@ -43,9 +62,4 @@
   color: var(--nnn-green);
 }
 @media screen and (max-width: $breakpoint-small) {
-  .blinking {
-    color: var(--nnn-orange);
-    animation: blink 1.5s linear 6;
-    font-style: italic;
-  }
 }

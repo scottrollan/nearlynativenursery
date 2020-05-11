@@ -8,7 +8,7 @@ class Header extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Menu className="ui stackable container menu">
+        <Menu className="ui stackable  menu">
           <Menu.Item>
             <img src={man} alt="" />
           </Menu.Item>

@@ -1,0 +1,46 @@
+@import '../styles/custom-media.scss';
+
+.parallaxLocation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../media/groundcover.jpg');
+  height: auto;
+  min-height: 64vh;
+  width: 100%;
+  padding: 2vh 0;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallaxLocation > div {
+  width: 45%;
+  border-radius: 10px;
+  background: linear-gradient(
+    to left,
+    #ffffff,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.9) 90%,
+    #fff 100%
+  );
+  padding: 2vh 10px;
+}
+.mapLink {
+  width: 60%;
+  margin: 0 20%;
+  padding: 8px 5px;
+  border-radius: 4px;
+  border: 1px dashed var(--dark-gray);
+}
+
+.mapLink:hover {
+  transform: translateY(2px);
+  background-color: var(--lightest-gray);
+}
+
+@media screen and (max-width: $breakpoint-small) {
+}

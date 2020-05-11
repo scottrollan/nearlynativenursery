@@ -11,12 +11,15 @@
   z-index: 999;
   height: $footer-height;
 }
+.address {
+  color: var(--nnn-orange);
+}
 .followUs {
   display: flex;
   justify-content: space-between;
   padding: 2vh 25% 1vh;
   font-size: 36px;
-  color: var(--nnn-green);
+  color: var(--nnn-orange);
 }
 .copyright {
   font-size: small;
@@ -24,5 +27,8 @@
 @media screen and (max-width: $breakpoint-medium) {
   .followUs {
     padding: 2vh 10% 1vh;
+  }
+  .copyright {
+    font-size: smaller;
   }
 }

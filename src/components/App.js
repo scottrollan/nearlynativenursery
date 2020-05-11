@@ -14,7 +14,7 @@ import Footer from './Footer';
 function App() {
   return (
     <React.Fragment>
-      <div className={`ui container ${styles.App}`}>
+      <div className={`${styles.App}`}>
         <BrowserRouter>
           <Header />
           <Switch>
