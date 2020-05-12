@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -12,16 +13,20 @@
   height: $footer-height;
 }
 .address {
+  align-self: center;
   color: var(--nnn-orange);
 }
 .followUs {
   display: flex;
   justify-content: space-between;
-  padding: 2vh 25% 1vh;
+  width: 70%;
+  max-width: 600px;
+  padding: 2vh 0 1vh;
   font-size: 36px;
   color: var(--nnn-orange);
 }
 .copyright {
+  align-self: center;
   font-size: small;
 }
 @media screen and (max-width: $breakpoint-medium) {
