@@ -15,8 +15,11 @@ const Home = () => {
       </div>
       <div>
         <p>
-          Proud to be selected as a <h4>Garden Watchdog Top 5</h4> company{' '}
-          <span className={styles.blinking}>five years in a row!</span>
+          Proud to be selected as a{' '}
+          <strong>
+            <u>Garden Watchdog Top 5</u>
+          </strong>{' '}
+          company <span className={styles.blinking}>five years in a row!</span>
         </p>
         <p>
           by Dave's Garden.{' '}

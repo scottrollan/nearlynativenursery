@@ -15,7 +15,6 @@ const Contact = () => {
               width: '100%',
               padding: '0 calc(50% - 320px',
             }}
-            action="/location"
           >
             <div className="field">
               <input type="hidden" name="form-name" value="contact" />
