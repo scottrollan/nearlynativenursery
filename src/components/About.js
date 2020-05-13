@@ -19,7 +19,7 @@ const About = () => {
       </figure>
       <p>
         Native plants offer a tough, verastile and beautiful alternative with
-        lower maintenance to the imported , more exotic general nursery stock.
+        lower maintenance to the imported, more exotic general nursery stock.
         Native plants are more suitable to local water, soil and pest
         conditions. Many of these native plants also serve as food for beautiful
         songbirds as well as hosts for many species of butterflies and moths.
