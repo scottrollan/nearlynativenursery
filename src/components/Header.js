@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Input, Dropdown, Menu } from 'semantic-ui-react';
+import { Input, Dropdown, Menu, Divider } from 'semantic-ui-react';
 import man from '../media/N3man.png';
 import styles from './Header.module.scss';
 
@@ -8,7 +8,7 @@ class Header extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Menu className="ui stackable  menu">
+        <Menu stackable>
           <Menu.Item>
             <img src={man} alt="" />
           </Menu.Item>
@@ -38,7 +38,7 @@ class Header extends React.Component {
               <Link className={styles.dropdownLink} to="/location">
                 Location
               </Link>
-              <div className="divider"></div>{' '}
+              <Divider />
               <Link
                 className={styles.dropdownLink}
                 to="https://planthardiness.ars.usda.gov/PHZMWeb/"

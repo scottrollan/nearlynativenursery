@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 
-const Shipping = () => {
+const SearchConditionsInput = () => {
   return (
     <Container>
-      <h2>Shipping</h2>
+      <h4>SearchConditionsInput</h4>
     </Container>
   );
 };
 
-export default Shipping;
+export default SearchConditionsInput;

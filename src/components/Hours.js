@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
 
 const Hours = () => {
   return (
-    <div className={`ui container`}>
+    <Container>
       <h2>Hours</h2>
-    </div>
+    </Container>
   );
 };
 

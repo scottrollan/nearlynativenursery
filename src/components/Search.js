@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
 
 const Search = () => {
   return (
-    <div className={`ui container`}>
+    <Container>
       <h2>Search</h2>
-    </div>
+    </Container>
   );
 };
 

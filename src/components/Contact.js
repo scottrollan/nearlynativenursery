@@ -1,14 +1,14 @@
 import React from 'react';
+import { Container, Button, Form, Input, TextArea } from 'semantic-ui-react';
 import styles from './Contact.module.scss';
 import pic from '../media/N3nameTransparentWithMan2.png';
 
 const Contact = () => {
   return (
-    <div className={`ui container`}>
+    <Container>
       <div className={styles.contact}>
         <div className={styles.form}>
-          <form
-            className="ui form"
+          <Form
             name="contact"
             method="post"
             style={{
@@ -17,11 +17,11 @@ const Contact = () => {
             }}
             action="/"
           >
-            <div className="field">
+            <Form.Field>
               <input type="hidden" name="form-name" value="contact" />
               <label style={{ fontSize: '1.8vh' }}>
                 Name
-                <input
+                <Input
                   type="text"
                   name="name"
                   placeholder="Name"
@@ -29,11 +29,11 @@ const Contact = () => {
                   style={{ height: '4.8vh', minHeight: '36px' }}
                 />
               </label>
-            </div>
-            <div className="field">
+            </Form.Field>
+            <Form.Field>
               <label style={{ fontSize: '1.8vh', height: 'auto' }}>
                 E-mail
-                <input
+                <Input
                   type="email"
                   name="email"
                   placeholder="me@email.com"
@@ -41,11 +41,11 @@ const Contact = () => {
                   style={{ height: '4.8vh', minHeight: '36px' }}
                 />
               </label>
-            </div>
-            <div className="field">
+            </Form.Field>
+            <Form.Field>
               <label style={{ fontSize: '1.8vh' }}>
                 Message
-                <textarea
+                <TextArea
                   type="textarea"
                   name="message"
                   placeholder="Enter text..."
@@ -53,12 +53,12 @@ const Contact = () => {
                   style={{ height: '20.5vh' }}
                 />
               </label>
-            </div>
+            </Form.Field>
 
-            <button className="ui button" type="submit">
+            <Button type="submit" onClick={() => console.log('message sent')}>
               Submit
-            </button>
-          </form>
+            </Button>
+          </Form>
         </div>
         <div className={styles.pic}>
           <img src={pic} alt="" style={{ width: '100%' }} />
@@ -72,7 +72,7 @@ const Contact = () => {
         </div>
         <hr className={styles.hr} />
       </div>
-    </div>
+    </Container>
   );
 };
 

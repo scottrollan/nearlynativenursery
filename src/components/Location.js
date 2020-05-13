@@ -1,11 +1,12 @@
 import React from 'react';
+import { Container, Icon } from 'semantic-ui-react';
 import name from '../media/N3nameTransparent.png';
 import styles from './Location.module.scss';
 
 const Location = () => {
   return (
     <div className={styles.parallaxLocation}>
-      <div className={`ui container`}>
+      <Container>
         <img src={name} alt="" style={{ width: '80%' }} />
         <h3>776 McBride Road</h3>
         <h3>Fayetteville, GA 30215</h3>
@@ -16,11 +17,11 @@ const Location = () => {
         >
           {' '}
           <p className={styles.mapLink}>
-            <i className="map marker alternate icon"></i>
+            <Icon className="map marker alternate" />
             See us on the map...
           </p>
         </a>
-      </div>
+      </Container>
     </div>
   );
 };

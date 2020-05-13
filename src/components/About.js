@@ -1,11 +1,12 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
 import styles from './About.module.scss';
 import jimDebi from '../media/jimDebi.jpg';
 import name from '../media/N3nameTransparent.png';
 
 const About = () => {
   return (
-    <div className={`ui container ${styles.about}`}>
+    <Container className={styles.about}>
       <img src={name} alt="" style={{ width: '100%' }} />
       <p>
         <strong>Nearly Native Nursery</strong> is a specialty nursery that
@@ -42,7 +43,7 @@ const About = () => {
         array of gorgeous native plants available for you. We hope that you find
         our site interesting and educational!
       </p>
-    </div>
+    </Container>
   );
 };
 
