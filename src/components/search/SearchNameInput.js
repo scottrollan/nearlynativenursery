@@ -7,7 +7,6 @@ const SearchNameInput = (props) => {
 
   const searchByName = (event) => {
     event.preventDefault();
-    console.log(searchName);
     let inputText = searchName.toLowerCase();
     let botanicalInput = inputText.replace(/^\w/, (c) => c.toUpperCase()); // capitalize first letter of first word only
     let commonInput = inputText

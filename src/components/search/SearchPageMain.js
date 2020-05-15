@@ -12,9 +12,9 @@ class SearchPageMain extends React.Component {
 
   compileResults = () => {
     if (this.state.form === undefined || this.state.form.length === 0) {
-      document.getElementById('spinner').style.display = 'none';
-      document.getElementById('searchCondButton').style.display =
-        'inline-block';
+      // document.getElementById('spinner').style.display = 'none';
+      // document.getElementById('searchCondButton').style.display =
+      //   'inline-block';
       alert('...no plants match those specifications...');
     } else {
       document.getElementById('resultsArea').style.display = 'inline';

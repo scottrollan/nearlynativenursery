@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <link rel="stylesheet" href="N3_files/semantic.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+
+    <title>N3</title>
+  <style type="text/css">.Home_parallaxHome__2NAd7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url(/static/media/yellowEchinacea.3a7b7623.jpg);
+  height: auto;
+  min-height: 120vh;
+  width: 100%;
+  padding: 2vh 0;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.Home_parallaxHome__2NAd7 > div {
+  align-self: flex-end;
+  text-align: center;
+  width: 45%;
+  max-width: 450px;
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.9) 90%, #fff 100%);
+  padding: 2vh 10px; }
+
+.Home_parallaxHome__2NAd7 > div:nth-child(odd) {
+  align-self: flex-start;
+  border-radius: 0 10px 10px 0; }
+
+.Home_blinking__1Cuqb {
+  color: black;
+  animation: Home_blink__1qtdY 1.5s linear infinite;
+  font-style: italic; }
+
+@keyframes Home_blink__1qtdY {
+  0% {
+    opacity: 1; }
+  25% {
+    opacity: 0.5; }
+  50% {
+    opacity: 0; }
+  75% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1; } }
+
+.Home_readMore__1WHJn {
+  color: var(--nnn-green); }
+</style><style type="text/css">:root {
+  /* Colors */
+  --lightest-gray: #f2f2f2;
+  --light-gray: #c3c3c3;
+  --medium-gray: #8b8b8b;
+  --dark-gray: #3f3f3f;
+  --blue: #4183c4;
+  --normal-font-color: #212121;
+  --nnn-green: #198502;
+  --nnn-orange: rgba(254, 54, 0, 255);
+  --small-screen: (max-wdith: 600px); }
+</style><style type="text/css">.About_about__2tEds {
+  text-align: justify; }
+
+.About_about__2tEds > p {
+  font-size: medium; }
+
+.About_figure__vvFb1 {
+  float: right;
+  text-align: right;
+  width: 40%;
+  max-width: 250px;
+  margin-right: 0; }
+</style><style type="text/css">.Contact_contact__QKqZ5 {
+  display: grid;
+  grid-template-columns: 200px 4vw auto;
+  grid-template-rows: 2vh auto auto 4vw auto;
+  grid-template-areas: '    .    .     .' 'address  .   form' 'address  .   form' '   hr    hr   hr' 'pic     pic  pic';
+  text-align: left; }
+
+.Contact_pic__23Had {
+  grid-area: pic; }
+
+.Contact_form__fNl-3 {
+  grid-area: form; }
+
+.Contact_address__15YxJ {
+  grid-area: address; }
+
+.Contact_hr__xQA5Z {
+  grid-area: hr;
+  visibility: hidden;
+  width: 100%; }
+
+@media screen and (max-width: 767px) {
+  .Contact_contact__QKqZ5 {
+    grid-template-columns: 200px 4vw auto;
+    grid-template-rows: 2vh auto 4vw auto;
+    grid-template-areas: '.       .     .' 'form    form  form' 'hr      hr    hr' 'address pic   pic'; }
+  .Contact_hr__xQA5Z {
+    visibility: visible; } }
+</style><style type="text/css">.Location_parallaxLocation__1n5JF {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/static/media/groundcover.724db221.jpg);
+  height: auto;
+  min-height: 64vh;
+  width: 100%;
+  padding: 2vh 0;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.Location_parallaxLocation__1n5JF > div {
+  width: 45%;
+  border-radius: 10px;
+  background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.9) 90%, #fff 100%);
+  padding: 2vh 10px; }
+
+.Location_mapLink__2LyTa {
+  width: 60%;
+  margin: 0 20%;
+  padding: 8px 5px;
+  border-radius: 4px;
+  border: 1px dashed var(--dark-gray); }
+
+.Location_mapLink__2LyTa:hover {
+  transform: translateY(2px);
+  background-color: var(--lightest-gray); }
+</style><style type="text/css">.SearchNameInput_searchInput__UzzRv {
+  background-color: #e3e3e3;
+  display: inherit; }
+
+.SearchNameInput_nameButton__3yW9i {
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  padding: 15px 0;
+  margin: 0 auto;
+  border: 1px solid #3e3e3e;
+  border-radius: 2vw;
+  box-sizing: border-box;
+  color: #3e3e3e;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: var(--font-title3-size);
+  line-height: var(--font-title3-line-height);
+  display: inherit; }
+
+.SearchNameInput_nameButton__3yW9i:hover {
+  color: white;
+  background-color: #1d271b; }
+</style><style type="text/css">div.SearchResults_sticky__mF-ZM {
+  position: sticky;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0; }
+
+.SearchResults_closeButton__2xZiK {
+  margin: 10px; }
+
+.SearchResults_returnButton__2Hz89 {
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  border: 1px solid #3e3e3e;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 2vw;
+  box-sizing: border-box;
+  color: #3e3e3e;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: var(--font-title3-size);
+  line-height: var(--font-title3-line-height); }
+
+.SearchResults_returnButton__2Hz89:hover,
+.SearchResults_closeButton__2xZiK:hover {
+  color: white;
+  background-color: #1d271b; }
+
+.SearchResults_card__Z4fts {
+  border: 1px solid #999999;
+  width: 80%;
+  max-width: 450px;
+  margin: 10px auto;
+  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box; }
+
+.SearchResults_cardBody__3iGvI {
+  padding: 0;
+  text-align: center; }
+
+.SearchResults_trigger__bsiL4 {
+  padding: 5px 10px;
+  margin: 20px;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  background: white; }
+
+.SearchResults_trigger__bsiL4:hover {
+  color: white;
+  background-color: #1d271b !important; }
+
+.SearchResults_modal__3C4q9 {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  border: 1px solid #767676;
+  z-index: 9999;
+  transition: visibility 0s linear 0s, opacity 0.5s 0s, transform 0.5s; }
+
+.SearchResults_modalContent__7FLti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 75%;
+  max-width: 700px;
+  max-height: 80%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  overflow-y: auto; }
+
+#SearchResults_xButton__MaUKn {
+  width: 22px;
+  height: 22px;
+  float: right;
+  border: 1px solid #3e3e3e;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer; }
+
+#SearchResults_xButton__MaUKn:hover {
+  color: white;
+  background: #3e3e3e; }
+
+.SearchResults_littleButton__16ics {
+  padding: 2px 8px;
+  width: auto;
+  height: auto;
+  font-size: smaller;
+  margin: 0 10px;
+  border-radius: 4px; }
+
+.SearchResults_littleButton__16ics:hover {
+  color: white;
+  background-color: #1d271b; }
+
+.SearchResults_catHeading__3yuJT {
+  text-align: left;
+  text-decoration: underline;
+  vertical-align: bottom; }
+
+.SearchResults_catItems__1U1f_ {
+  display: flex;
+  flex-direction: column;
+  width: 30%; }
+
+ul {
+  text-align: left;
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style-type: none;
+  text-decoration: none; }
+</style><style type="text/css">.SearchPageMain_searchArea___8p_Y {
+  position: relative;
+  text-align: center; }
+
+h4,
+h5,
+hr {
+  margin: 30px 0 10px; }
+
+.SearchPageMain_card__2TJEr {
+  border: 1px solid #999999;
+  width: 80%;
+  margin: 10px 10%;
+  box-shadow: 5px 10px 5px #888888;
+  box-sizing: border-box; }
+
+.SearchPageMain_card-body__2RLa- {
+  padding: 1vh;
+  text-align: center; }
+
+@media screen and (max-width: 960px) {
+  .SearchPageMain_card__2TJEr {
+    width: 95%;
+    margin: 10px 2.5%; } }
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Comfortaa&display=swap);</style><style type="text/css">body,
+html {
+  font-family: 'Comfortaa', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--normal-font-color);
+  text-align: center;
+  overflow-x: hidden; }
+
+.App_App__rq8wc {
+  max-width: 100vw;
+  min-height: 100vh;
+  margin-bottom: -24vh; }
+
+.App_active__3AH9z {
+  background-color: var(--light-gray); }
+
+.App_push__2b-8l {
+  height: 24vh; }
+</style><style type="text/css">.Header_dropdownLink__ob6tj {
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+  color: var(--normal-font-color); }
+
+.Header_dropdownLink__ob6tj:hover {
+  background-color: var(--lightest-gray);
+  color: var(--nnn-green); }
+</style><style type="text/css">.Footer_footer__1G6Wy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2vh 0;
+  z-index: 999;
+  height: 24vh; }
+
+.Footer_address__fjhkf {
+  align-self: center;
+  color: var(--nnn-orange); }
+
+.Footer_followUs__3pzY1 {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 600px;
+  padding: 2vh 0 1vh;
+  font-size: 36px;
+  color: var(--nnn-orange); }
+
+.Footer_copyright__3DGjo {
+  align-self: center;
+  font-size: small; }
+
+@media screen and (max-width: 767px) {
+  .Footer_followUs__3pzY1 {
+    padding: 2vh 10% 1vh; }
+  .Footer_copyright__3DGjo {
+    font-size: smaller; } }
+</style><style type="text/css">:root {
+  /* Colors */
+  --lightest-gray: #f2f2f2;
+  --light-gray: #c3c3c3;
+  --medium-gray: #8b8b8b;
+  --dark-gray: #3f3f3f;
+  --blue: #4183c4;
+  --normal-font-color: #212121;
+  --nnn-green: #198502;
+  --nnn-orange: rgba(254, 54, 0, 255);
+  --small-screen: (max-wdith: 600px);
+}
+</style><style type="text/css">$breakpoint-small: 600px;
+$breakpoint-medium: 767px;
+$breakpoint-large: 960px;
+$footer-height: 24vh;
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Comfortaa&display=swap);</style><style type="text/css">body,
+html {
+  font-family: 'Comfortaa', cursive, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+
+  color: var(--normal-font-color);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.clickable:hover {
+  color: #4183c4;
+}
+</style></head>
+  <body class="dimmable dimmed">
+    <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field" action="/" hidden="">
+      <input type="text" name="name">
+      <input type="email" name="email">
+      <textarea name="message"></textarea>
+    </form>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="App_App__rq8wc"><div class="ui stackable menu"><div class="item"><img src="N3_files/N3man.png" alt=""></div><a class="item" href="http://localhost:3000/">Home</a><a class="item" href="http://localhost:3000/contact">Contact</a><a aria-current="page" class="item active" href="http://localhost:3000/search">Search</a><div role="listbox" aria-expanded="false" class="ui item dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite" aria-atomic="true">About</div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"><a class="Header_dropdownLink__ob6tj" href="http://localhost:3000/about">The Nursery</a><a class="Header_dropdownLink__ob6tj" href="http://localhost:3000/hours">Hours of Operation</a><a class="Header_dropdownLink__ob6tj" href="http://localhost:3000/shipping">Shipping Costs</a><a class="Header_dropdownLink__ob6tj" href="http://localhost:3000/location">Location</a><div class="ui divider"></div><a class="Header_dropdownLink__ob6tj" target="_blank" rel="noopener noreferrer" href="http://localhost:3000/https://planthardiness.ars.usda.gov/PHZMWeb/">USDA Hardiness Zones</a></div></div><div class="right menu"><div class="item"><div class="ui icon input"><input placeholder="Search..." type="text"><i aria-hidden="true" class="search icon"></i></div></div><div role="listbox" aria-expanded="false" class="ui item dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite" aria-atomic="true">Our Friends</div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"><a class="Header_dropdownLink__ob6tj" target="_blank" rel="noopener noreferrer" href="http://localhost:3000/https://www.rarepalmseeds.com/">Rare Palm Seeds</a><a class="Header_dropdownLink__ob6tj" target="_blank" rel="noopener noreferrer" href="http://localhost:3000/https://gnps.org/">Georgia Native Plant Society</a><a class="Header_dropdownLink__ob6tj" target="_blank" rel="noopener noreferrer" href="http://localhost:3000/https://garivers.org/">Georgia River Network</a></div></div></div></div><div class="ui container"><section id="searchArea" class="SearchPageMain_searchArea___8p_Y" style="display: none;"><div style="text-align: center;"><h1>Search Botanical Name or Common Name: &nbsp;</h1><div class="ui container"><form class="ui form"><div class="field"><div class="ui input SearchNameInput_searchInput__UzzRv"><input name="searchName" type="text" value="pinus"></div></div><button type="submit" class="ui button SearchNameInput_nameButton__3yW9i">Search By Name</button></form></div><hr><h1>...or by Growing Conditions</h1><div><div class="ui container"><h4>SearchConditionsInput</h4></div></div></div></section><div id="resultsArea" style="display: inline;" class="ui container"><div class="SearchResults_sticky__mF-ZM"><button class="ui button SearchResults_returnButton__2Hz89">Return to Search Page</button></div><h5 style="text-align: center;">We found 5 items matching that criteria...</h5><div style="justify-content: center;" class="ui cards"><div class="ui card"><div class="content"><div class="header">Sand Pine</div><div class="meta">Pinus clausa </div><div class="description">Category: trees</div><a href="https://cdn.sanity.io/images/ogg4t6rs/production/77fd2a484d5c44afab16e9cf59cb75da1a2664a0-300x400.jpg" target="_blank" rel="noopener noreferrer"><img src="N3_files/77fd2a484d5c44afab16e9cf59cb75da1a2664a0-300x400.jpg" class="ui small image"></a></div><div class="extra content"><button class="ui button">See Details</button></div></div><div class="ui card"><div class="content"><div class="header">Slash Pine</div><div class="meta">Pinus elliottii </div><div class="description">Category: trees</div><img src="data:image/png;base64,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" class="ui small image"></div><div class="extra content"><button class="ui button">See Details</button></div></div><div class="ui card"><div class="content"><div class="header">Spruce Pine</div><div class="meta">Pinus glabra </div><div class="description">Category: trees</div><img src="data:image/png;base64,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" class="ui small image"></div><div class="extra content"><button class="ui button">See Details</button></div></div><div class="ui card"><div class="content"><div class="header">Longleaf Pine</div><div class="meta">Pinus palustris </div><div class="description">Category: trees</div><a href="https://cdn.sanity.io/images/ogg4t6rs/production/fdb2c5b97f07cd36e6c08807bd14cae8832d465c-300x400.jpg" target="_blank" rel="noopener noreferrer"><img src="N3_files/fdb2c5b97f07cd36e6c08807bd14cae8832d465c-300x400.jpg" class="ui small image"></a></div><div class="extra content"><button class="ui button">See Details</button></div></div><div class="ui card"><div class="content"><div class="header">Virginia Pine</div><div class="meta">Pinus virginiana </div><div class="description">Category: trees</div><a href="https://cdn.sanity.io/images/ogg4t6rs/production/3b485e82a4db97506d84c908ddae33c18217c552-400x365.jpg" target="_blank" rel="noopener noreferrer"><img src="N3_files/3b485e82a4db97506d84c908ddae33c18217c552-400x365.jpg" class="ui small image"></a></div><div class="extra content"><button class="ui button">See Details</button></div></div></div></div></div><div class="App_push__2b-8l"></div></div><div class="Footer_footer__1G6Wy"><a href="https://www.google.com/maps/place/Nearly+Native+Nursery/@33.3820212,-84.4739524,15z/data=!4m5!3m4!1s0x0:0xf3eaee697edb71e1!8m2!3d33.3820212!4d-84.4739524" target="_blank" rel="noopener noreferrer" class="Footer_address__fjhkf"><p>776 McBride Rd | Fayetteville, GA | 30215</p></a><div class="Footer_followUs__3pzY1"><i aria-hidden="true" class="icon facebook clickable"></i><i aria-hidden="true" class="icon instagram  clickable"></i><i aria-hidden="true" class="icon twitter square  clickable"></i></div><div class="Footer_copyright__3DGjo"><i aria-hidden="true" class="icon copyright outline"></i><span> copyright Nearly Native Nursery | All Rights Reserved | 2020</span></div></div></div>
+  <script src="N3_files/bundle.js"></script><script src="N3_files/1.js"></script><script src="N3_files/main_002.js"></script><script src="N3_files/main.js"></script>
+
+<div class="ui page modals dimmer transition visible active" style="display: flex !important;"><div id="951cb2e2-4fb2-4e90-bf80-9e12a5b7b640" class="ui modal transition visible active"><div class="header">Slash Pine</div><div class="image scrolling content"><a href="http://www.google.com/search?q=Pinus%20elliottii%20&amp;tbm=isch" target="_blank" rel="noopener noreferrer" style="min-height: 0;" class="ui secondary button" role="button">Pinus elliottii on Google Images <div style="width: 100%; margin-top: 10px;"><i aria-hidden="true" class="search large icon"></i></div></a><div class="description"><h5><i>Pinus elliottii </i></h5><p>A tall fast growing evergreen conifer that can reach 100'High x 40'Wide crown. The needles are 10 to 12 inches longand
+ occur in fascicles(bundles) of 2. This Pine does best in sandy or sandy
+ loam soils of the Deep South or Coastal Plain. The name Slash comes 
+from its utilization as a resin source, the practice of slashing this 
+Pinus to start the resin flow for producing turpentine. The needles 
+(pinestraw) of this species are used for in landscapes for mulching 
+beds. </p><p></p><p>Thrives from zone 7 to zone 10.</p></div><div style="display: flex; place-content: flex-start space-around; flex-wrap: wrap;"><div class="SearchResults_catItems__1U1f_"><h4 class="SearchResults_catHeading__3yuJT">Soil types</h4><ul><li>clay</li><li>average</li><li>sand</li></ul></div><div class="SearchResults_catItems__1U1f_"><h4 class="SearchResults_catHeading__3yuJT">Soil Ph</h4><ul><li>acid</li><li>neutral</li><li>alkaline</li></ul></div><div class="SearchResults_catItems__1U1f_"><h4 class="SearchResults_catHeading__3yuJT">Water level</h4><ul><li>dry</li><li>average</li></ul></div><div class="SearchResults_catItems__1U1f_"><h4 class="SearchResults_catHeading__3yuJT">Sun exposure</h4><ul><li>full</li><li>partial</li></ul></div><div class="SearchResults_catItems__1U1f_"><h4 class="SearchResults_catHeading__3yuJT">Foliage</h4><ul><li>evergreen</li></ul></div><div class="SearchResults_catItems__1U1f_"></div><div class="SearchResults_catItems__1U1f_"><h4 class="SearchResults_catHeading__3yuJT">Container Size</h4><ul><li>3 gallon</li></ul></div><div class="SearchResults_catItems__1U1f_"><h4 class="SearchResults_catHeading__3yuJT">Price</h4><ul><li>$24</li></ul></div><div style="display: flex; justify-content: flex-start; width: 30%; padding: 0px 0px 20px;"></div></div></div></div></div></body></html>
