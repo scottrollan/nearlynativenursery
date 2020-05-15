@@ -4,8 +4,8 @@ import {
   Button,
   Card,
   Image,
-  Header,
   Icon,
+  Divider,
 } from 'semantic-ui-react';
 import defaultImage from '../../media/no-image-available-icon.png';
 import styles from './SearchResults.module.scss';
@@ -43,7 +43,7 @@ class SearchResults extends React.Component {
       <Container id="resultsArea" style={{ display: 'none' }}>
         {/* <ToTopButton /> */}
         <div className={styles.sticky}>
-          <Button className={styles.returnButton} onClick={this.returnToSearch}>
+          <Button secondary onClick={this.returnToSearch}>
             Return to Search Page
           </Button>
         </div>
@@ -52,7 +52,7 @@ class SearchResults extends React.Component {
           criteria...
         </h5>
 
-        <Card.Group style={{ justifyContent: 'space-between' }}>
+        <Card.Group style={{ justifyContent: 'center' }}>
           {this.props.resultsArray === null ||
           this.props.resultsArray.length === 0
             ? null
@@ -78,8 +78,8 @@ class SearchResults extends React.Component {
                 }
 
                 return (
-                  <React.Fragment>
-                    <Card key={d._id}>
+                  <React.Fragment key={d._id}>
+                    <Card>
                       <Card.Content>
                         <Card.Header>{d.commonName}</Card.Header>
 
@@ -109,52 +109,39 @@ class SearchResults extends React.Component {
                     </Card>
 
                     <div
-                      // className={styles.modal}
-                      style={{
-                        position: 'fixed',
-                        left: 0,
-                        right: 0,
-                        width: '100vw',
-                        height: '100vh',
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        zIndex: '9999',
-                      }}
+                      className={styles.modal}
                       id={modalId}
                       style={{ display: 'none' }}
                     >
-                      <div className={styles.modalContent}>
-                        <Header>{d.commonName}</Header>
+                      <div className={styles.modalOverlay}></div>
+                      <Card className={styles.modalContent}>
+                        <Card.Content scrolling>
+                          <Card.Header>{d.commonName}</Card.Header>
 
-                        <div>
-                          {hasUniqueImage === true ? (
-                            //if it has a unique image, it is clickable
-                            <a
-                              href={`${imageUrl}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Image
-                                size="small"
-                                wrapped
-                                floated="left"
-                                src={imageUrl}
-                                alt=""
-                              />
-                            </a>
-                          ) : null}
-                          <div>
-                            <Header as="h3">
-                              {d.botanicalName} {d.variety}{' '}
-                            </Header>
-                            {/* {d.regionalName ? (
-                              <p>
-                                <strong>Regional Name: {d.regionalName}</strong>
-                              </p>
-                            ) : null} */}
+                          <Card.Meta as="h3">
+                            {d.botanicalName} {d.variety} {d.regionalName}
+                          </Card.Meta>
+
+                          <Card.Description>
+                            {hasUniqueImage === true ? (
+                              //if it has a unique image, it is clickable
+                              <a
+                                href={`${imageUrl}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Image
+                                  size="small"
+                                  wrapped
+                                  floated="left"
+                                  src={imageUrl}
+                                  alt=""
+                                />
+                              </a>
+                            ) : null}
                             <p style={{ maxWidth: '100%' }}>
                               {descIntro}
                               {/* <Button
-                                className={styles.littleButton}
                                 onClick={() => this.expandDescr(`${modalId}`)}
                               >
                                 keep reading
@@ -166,7 +153,6 @@ class SearchResults extends React.Component {
                                 {' '} */}
                               {descEnding}{' '}
                               {/* <Button
-                                  className={styles.littleButton}
                                   onClick={() =>
                                     this.collapseDescr(`${modalId}`)
                                   }
@@ -180,113 +166,149 @@ class SearchResults extends React.Component {
                               Thrives from zone {d.lowZone} to zone {d.highZone}
                               .
                             </p>
-                          </div>
-                        </div>
-
-                        <div
-                          style={{
-                            display: 'flex',
-                            alignContent: 'flex-start',
-                            justifyContent: 'space-around',
-                            flexWrap: 'wrap',
-                          }}
-                        >
-                          <div className={styles.catItems}>
-                            <h4 className={styles.catHeading}>Soil types</h4>
-                            <ul>
-                              {d.soilType.map((type, index) => (
-                                <li key={index}>{type}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className={styles.catItems}>
-                            <h4 className={styles.catHeading}>Soil Ph</h4>
-                            <ul>
-                              {d.soilPH.map((ph, index) => (
-                                <li key={index}>{ph}</li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div className={styles.catItems}>
-                            <h4 className={styles.catHeading}>Water level</h4>
-                            <ul>
-                              {d.waterLevel.map((water, index) => (
-                                <li key={index}>{water}</li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div className={styles.catItems}>
-                            <h4 className={styles.catHeading}>Sun exposure</h4>
-                            <ul>
-                              {d.sunlightLevel.map((sun, index) => (
-                                <li key={index}>{sun}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className={styles.catItems}>
-                            <h4 className={styles.catHeading}>Foliage</h4>
-                            <ul>
-                              {d.foliage.map((f, index) => (
-                                <li key={index}>{f}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className={styles.catItems}></div>
-
-                          <div className={styles.catItems}>
-                            <h4 className={styles.catHeading}>
-                              Container Size
-                            </h4>
-                            <ul>
-                              {d.amount.map((p, index) => (
-                                <li key={index}>{p.containerSize}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className={styles.catItems}>
-                            <h4 className={styles.catHeading}>Price</h4>
-                            <ul>
-                              {d.amount.map((p, index) => (
-                                <li key={index}>${p.price}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div
+                          </Card.Description>
+                          <Divider />
+                          <Card.Content
                             style={{
                               display: 'flex',
-                              justifyContent: 'flex-start',
-                              width: '30%',
-                              padding: '0 0 20px 0',
+                              justifyContent: 'space-around',
+                              flexWrap: 'wrap',
                             }}
-                          ></div>
-                          <div>
-                            {hasUniqueImage !== true ? (
-                              //if there is a placeholder image, find it on google images
-
-                              <Button
-                                secondary
-                                floated="left"
-                                href={`http://www.google.com/search?q=${d.botanicalName} ${d.variety}&tbm=isch`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ maxWidth: '15%' }}
+                          >
+                            <div style={{ textAlign: 'left' }}>
+                              <Card.Header
+                                as="h5"
+                                style={{ marginBottom: '5px' }}
                               >
-                                {' '}
-                                {d.botanicalName} on Google Images{' '}
-                                <Icon name="search" size="large" />
-                              </Button>
-                            ) : null}
-                            <Button
-                              primary
-                              onClick={() => this.hideThisModal(modalId)}
+                                Soil types
+                              </Card.Header>
+                              <ul className={styles.mUl}>
+                                {d.soilType.map((type, index) => (
+                                  <li key={index}>{type}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div style={{ textAlign: 'left' }}>
+                              <Card.Header
+                                as="h5"
+                                style={{ marginBottom: '5px' }}
+                              >
+                                Soil Ph
+                              </Card.Header>
+                              <ul className={styles.mUl}>
+                                {d.soilPH.map((ph, index) => (
+                                  <li key={index}>{ph}</li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <div style={{ textAlign: 'left' }}>
+                              <Card.Header
+                                as="h5"
+                                style={{ marginBottom: '5px' }}
+                              >
+                                Water level
+                              </Card.Header>
+                              <ul className={styles.mUl}>
+                                {d.waterLevel.map((water, index) => (
+                                  <li key={index}>{water}</li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <div style={{ textAlign: 'left' }}>
+                              <Card.Header
+                                as="h5"
+                                style={{ marginBottom: '5px' }}
+                              >
+                                Sun exposure
+                              </Card.Header>
+                              <ul className={styles.mUl}>
+                                {d.sunlightLevel.map((sun, index) => (
+                                  <li key={index}>{sun}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div style={{ textAlign: 'left' }}>
+                              <Card.Header
+                                as="h5"
+                                style={{ marginBottom: '5px' }}
+                              >
+                                Foliage
+                              </Card.Header>
+                              <ul className={styles.mUl}>
+                                {d.foliage.map((f, index) => (
+                                  <li key={index}>{f}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div></div>
+
+                            <div
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                flexWrap: 'nowrap',
+                                justifyContent: 'space-between',
+                              }}
                             >
-                              Close
+                              <div
+                                style={{
+                                  textAlign: 'left',
+                                  marginRight: '15px',
+                                }}
+                              >
+                                <Card.Header
+                                  as="h5"
+                                  style={{ marginBottom: '0' }}
+                                >
+                                  Container Size
+                                </Card.Header>
+                                <ul className={styles.mUl}>
+                                  {d.amount.map((p, index) => (
+                                    <li key={index}>{p.containerSize}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <div style={{ textAlign: 'left' }}>
+                                <Card.Header
+                                  as="h5"
+                                  style={{ marginBottom: '0' }}
+                                >
+                                  Price
+                                </Card.Header>
+                                <ul className={styles.mUl}>
+                                  {d.amount.map((p, index) => (
+                                    <li key={index}>${p.price}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          </Card.Content>
+                        </Card.Content>
+
+                        <Card.Content extra>
+                          {hasUniqueImage !== true ? (
+                            //if there is a placeholder image, find it on google images
+                            <Button
+                              secondary
+                              href={`http://www.google.com/search?q=${d.botanicalName}${d.variety}&tbm=isch`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {' '}
+                              {d.botanicalName} on Google Images &nbsp; &nbsp;
+                              <Icon name="search" size="large" />
                             </Button>
-                          </div>
-                        </div>
-                      </div>
+                          ) : null}
+                          <Button
+                            primary
+                            onClick={() => this.hideThisModal(modalId)}
+                          >
+                            Close
+                          </Button>
+                        </Card.Content>
+                      </Card>
                       {/* end modal content */}
                     </div>
                   </React.Fragment>
