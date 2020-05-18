@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import styles from './About.module.scss';
-import jimDebi from '../media/jimDebi.jpg';
-import name from '../media/N3nameTransparent.png';
+import jimDebi from '../../media/jimDebi.jpg';
+import name from '../../media/N3nameTransparent.png';
 
 const About = () => {
   return (

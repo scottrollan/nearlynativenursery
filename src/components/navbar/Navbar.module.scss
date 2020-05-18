@@ -1,4 +1,4 @@
-@import '../styles/custom-media.scss';
+@import '../../styles/custom-media.scss';
 
 .dropdownLink {
   display: inline-block;
@@ -7,6 +7,6 @@
   color: var(--normal-font-color);
 }
 .dropdownLink:hover {
-  background-color: var(--lightest-gray);
   color: var(--nnn-green);
+  text-decoration: none;
 }

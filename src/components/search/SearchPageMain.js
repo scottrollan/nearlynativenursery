@@ -17,8 +17,8 @@ class SearchPageMain extends React.Component {
       //   'inline-block';
       alert('...no plants match those specifications...');
     } else {
-      document.getElementById('resultsArea').style.display = 'inline';
-      document.getElementById('searchArea').style.display = 'none';
+      document.querySelector('#resultsArea').style.display = 'inherit';
+      document.querySelector('#searchArea').style.display = 'none';
       window.location.href = '#resultsArea';
     }
   };

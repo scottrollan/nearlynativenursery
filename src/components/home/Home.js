@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
-import name from '../media/N3nameTransparent.png';
+import name from '../../media/N3nameTransparent.png';
 
 const Home = () => {
   return (

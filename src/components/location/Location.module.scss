@@ -1,11 +1,11 @@
-@import '../styles/custom-media.scss';
+@import '../../styles/custom-media.scss';
 
 .parallaxLocation {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../media/groundcover.jpg');
+  background-image: url('../../media/groundcover.jpg');
   height: auto;
   min-height: 64vh;
   width: 100%;

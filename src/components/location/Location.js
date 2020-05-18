@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Icon } from 'semantic-ui-react';
-import name from '../media/N3nameTransparent.png';
+import name from '../../media/N3nameTransparent.png';
 import styles from './Location.module.scss';
 
 const Location = () => {

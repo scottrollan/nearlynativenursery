@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
-import { Input, Divider } from 'semantic-ui-react';
-import man from '../media/N3man.png';
-import styles from './Header.module.scss';
+import { Divider } from 'semantic-ui-react';
+import man from '../../media/N3man.png';
+import styles from './Navbar.module.scss';
 
 class Header extends React.Component {
   render() {
