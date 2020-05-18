@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Input, Dropdown, Menu, Divider } from 'semantic-ui-react';
+import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import { Input, Divider } from 'semantic-ui-react';
 import man from '../media/N3man.png';
 import styles from './Header.module.scss';
 
@@ -8,81 +9,120 @@ class Header extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Menu stackable>
-          <Menu.Item>
-            <img src={man} alt="" />
-          </Menu.Item>
-
-          <NavLink className="item" to="/" exact>
-            Home
-          </NavLink>
-
-          <NavLink className="item" to="/contact">
-            Contact
-          </NavLink>
-          <NavLink className="item" to="/search">
-            Search
-          </NavLink>
-
-          <Dropdown item text="About">
-            <Dropdown.Menu>
-              <Link className={styles.dropdownLink} to="/about">
-                The Nursery
-              </Link>
-              <Link className={styles.dropdownLink} to="/hours">
-                Hours of Operation
-              </Link>
-              <Link className={styles.dropdownLink} to="/shipping">
-                Shipping Costs
-              </Link>
-              <Link className={styles.dropdownLink} to="/location">
-                Location
-              </Link>
-              <Divider />
-              <Link
-                className={styles.dropdownLink}
-                to="https://planthardiness.ars.usda.gov/PHZMWeb/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                USDA Hardiness Zones
-              </Link>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Menu.Menu position="right">
-            <Menu.Item>
-              <Input icon="search" placeholder="Search..." />
-            </Menu.Item>
-            <Dropdown item text="Our Friends">
-              <Dropdown.Menu>
-                <Link
-                  className={styles.dropdownLink}
-                  to="https://www.rarepalmseeds.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand style={{ maxHeight: '50px' }}>
+            <img src={man} alt="" style={{ maxHeight: '50px' }} />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link>
+                <NavLink
+                  style={{ color: 'inherit' }}
+                  className="item"
+                  to="/"
+                  exact
                 >
-                  Rare Palm Seeds
-                </Link>
-                <Link
-                  className={styles.dropdownLink}
-                  to="https://gnps.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  Home
+                </NavLink>
+              </Nav.Link>
+
+              <Nav.Link>
+                <NavLink
+                  style={{ color: 'inherit' }}
+                  className="item"
+                  to="/contact"
                 >
-                  Georgia Native Plant Society
-                </Link>
-                <Link
-                  className={styles.dropdownLink}
-                  to="https://garivers.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  Contact
+                </NavLink>
+              </Nav.Link>
+              <Nav.Link>
+                <NavLink
+                  style={{ color: 'inherit' }}
+                  className="item"
+                  to="/search"
                 >
-                  Georgia River Network
-                </Link>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Menu.Menu>
-        </Menu>
+                  Search
+                </NavLink>
+              </Nav.Link>
+
+              <NavDropdown title="About">
+                <NavDropdown.Item>
+                  <Link className={styles.dropdownLink} to="/about">
+                    The Nursery
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className={styles.dropdownLink} to="/hours">
+                    Hours of Operation
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className={styles.dropdownLink} to="/shipping">
+                    Shipping Costs
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className={styles.dropdownLink} to="/location">
+                    Location
+                  </Link>
+                </NavDropdown.Item>
+                <Divider />
+                <NavDropdown.Item>
+                  <Link
+                    className={styles.dropdownLink}
+                    to="https://planthardiness.ars.usda.gov/PHZMWeb/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    USDA Hardiness Zones
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Nav>
+              <NavDropdown title="Our Friends">
+                <NavDropdown.Item>
+                  <Link
+                    className={styles.dropdownLink}
+                    to="https://www.rarepalmseeds.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Rare Palm Seeds
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    className={styles.dropdownLink}
+                    to="https://gnps.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Georgia Native Plant Society
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    className={styles.dropdownLink}
+                    to="https://garivers.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Georgia River Network
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Form>
+                <FormControl
+                  type="text"
+                  placeholder="Search"
+                  className="mr-sm-2"
+                />
+              </Form>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </React.Fragment>
     );
   }

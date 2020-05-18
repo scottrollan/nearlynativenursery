@@ -1,4 +1,15 @@
 @import '../../styles/custom-media.scss';
+.cardGroup {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  border: 1px var(--dark-gray) solid;
+  border-radius: 1rem;
+  margin: 24px;
+  max-width: 400px;
+}
 
 .modal {
   position: fixed;

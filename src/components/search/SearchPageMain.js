@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container } from 'react-bootstrap';
 import SearchNameInput from './SearchNameInput';
 import SearchResults from './SearchResults';
 import SearchConditionsInput from './SearchConditionsInput';
@@ -46,7 +46,7 @@ class SearchPageMain extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container fluid>
         <section id="searchArea" className={styles.searchArea}>
           <div style={{ textAlign: 'center' }}>
             <h1>Search Botanical Name or Common Name: &nbsp;</h1>

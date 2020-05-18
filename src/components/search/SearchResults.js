@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-  Container,
-  Button,
-  Card,
-  Image,
-  Icon,
-  Header,
-  Divider,
-  Grid,
-} from 'semantic-ui-react';
+import { Image, Icon, Header, Divider, Grid } from 'semantic-ui-react';
+import { Container, Button, Card } from 'react-bootstrap';
 import defaultImage from '../../media/no-image-available-icon.png';
 import styles from './SearchResults.module.scss';
 
@@ -23,13 +15,13 @@ class SearchResults extends React.Component {
   };
   returnToSearch = () => {
     document.getElementById('resultsArea').style.display = 'none';
-    document.getElementById('searchArea').style.display = 'inline';
+    document.getElementById('searchArea').style.display = 'inherit';
     window.location.href = '#searchArea';
   };
 
   render() {
     return (
-      <Container id="resultsArea" style={{ display: 'none' }}>
+      <Container fluid id="resultsArea" style={{ display: 'none' }}>
         {/* <ToTopButton /> */}
         <div className={styles.sticky}>
           <Button secondary onClick={this.returnToSearch}>
@@ -41,7 +33,7 @@ class SearchResults extends React.Component {
           criteria...
         </h5>
 
-        <Card.Group style={{ justifyContent: 'center' }}>
+        <div className={styles.cardGroup}>
           {this.props.resultsArray === null ||
           this.props.resultsArray.length === 0
             ? null
@@ -63,33 +55,42 @@ class SearchResults extends React.Component {
 
                 return (
                   <React.Fragment key={d._id}>
-                    <Card>
-                      <Card.Content>
-                        <Card.Header>{d.commonName}</Card.Header>
+                    <Card className={styles.card}>
+                      <Card.Body>
+                        <Card.Title>{d.commonName}</Card.Title>
 
-                        <Card.Meta>
+                        <Card.Subtitle>
                           {d.botanicalName} {d.variety}
-                        </Card.Meta>
-                        <Card.Description>
-                          Category: {d.category}
-                        </Card.Description>
+                        </Card.Subtitle>
+                        <Card.Text>Category: {d.category}</Card.Text>
                         {hasUniqueImage === true ? (
                           <a
                             href={`${imageUrl}`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <Image size="small" src={imageUrl} />
+                            <Card.Img
+                              variant="top"
+                              style={{ width: '360px' }}
+                              src={imageUrl}
+                            />
                           </a>
                         ) : (
-                          <Image size="small" src={imageUrl} />
+                          <Card.Img
+                            variant="top"
+                            style={{
+                              width: '360px',
+                              padding: '30%',
+                            }}
+                            src={imageUrl}
+                          />
                         )}
-                      </Card.Content>
-                      <Card.Content extra>
+                      </Card.Body>
+                      <Card.Footer>
                         <Button onClick={() => this.showThisModal(modalId)}>
                           See Details
                         </Button>
-                      </Card.Content>
+                      </Card.Footer>
                     </Card>
 
                     <div
@@ -247,7 +248,7 @@ class SearchResults extends React.Component {
                   </React.Fragment>
                 );
               })}
-        </Card.Group>
+        </div>
       </Container>
     );
   }
