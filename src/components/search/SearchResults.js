@@ -5,7 +5,9 @@ import {
   Card,
   Image,
   Icon,
+  Header,
   Divider,
+  Grid,
 } from 'semantic-ui-react';
 import defaultImage from '../../media/no-image-available-icon.png';
 import styles from './SearchResults.module.scss';
@@ -19,23 +21,10 @@ class SearchResults extends React.Component {
   hideThisModal = (whichModal) => {
     document.getElementById(whichModal).style.display = 'none';
   };
-
-  expandDescr = (whichDescr) => {
-    document.getElementById(`short${whichDescr}`).style.display = 'none';
-    document.getElementById(`long${whichDescr}`).style.display = 'inline';
-  };
-
-  collapseDescr = (whichDescr) => {
-    document.getElementById(`long${whichDescr}`).style.display = 'none';
-    document.getElementById(`short${whichDescr}`).style.display = 'inline';
-  };
-
   returnToSearch = () => {
     document.getElementById('resultsArea').style.display = 'none';
     document.getElementById('searchArea').style.display = 'inline';
     window.location.href = '#searchArea';
-    // document.getElementById('spinner').style.display = 'none';
-    // document.getElementById('searchCondButton').style.display = 'inline-block';
   };
 
   render() {
@@ -58,11 +47,6 @@ class SearchResults extends React.Component {
             ? null
             : this.props.resultsArray.map((d) => {
                 const modalId = d._id;
-                const descIntro = d.description
-                  .split(' ')
-                  .slice(0, 21)
-                  .join(' '); //first 20 words
-                const descEnding = d.description.split(' ').slice(21).join(' '); //21st through the last word
                 let imageUrl = '';
                 let hasUniqueImage = false;
                 if (
@@ -113,181 +97,130 @@ class SearchResults extends React.Component {
                       id={modalId}
                       style={{ display: 'none' }}
                     >
-                      <div className={styles.modalOverlay}></div>
-                      <Card className={styles.modalContent}>
-                        <Card.Content scrolling>
-                          <Card.Header>{d.commonName}</Card.Header>
+                      <div
+                        className={styles.modalOverlay}
+                        onClick={() => this.hideThisModal(modalId)}
+                      ></div>
 
-                          <Card.Meta as="h3">
-                            {d.botanicalName} {d.variety} {d.regionalName}
-                          </Card.Meta>
+                      <div
+                        className={styles.modalContent}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Header as="h3">{d.commonName}</Header>
 
-                          <Card.Description>
-                            {hasUniqueImage === true ? (
-                              //if it has a unique image, it is clickable
-                              <a
-                                href={`${imageUrl}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <Image
-                                  size="small"
-                                  wrapped
-                                  floated="left"
-                                  src={imageUrl}
-                                  alt=""
-                                />
-                              </a>
-                            ) : null}
-                            <p style={{ maxWidth: '100%' }}>
-                              {descIntro}
-                              {/* <Button
-                                onClick={() => this.expandDescr(`${modalId}`)}
-                              >
-                                keep reading
-                              </Button>
-                              <span
-                                id={`long${modalId}`}
-                                style={{ display: 'none' }}
-                              >
-                                {' '} */}
-                              {descEnding}{' '}
-                              {/* <Button
-                                  onClick={() =>
-                                    this.collapseDescr(`${modalId}`)
-                                  }
-                                >
-                                  see less
-                                </Button>
-                              </span> */}
-                            </p>
-                            <p>{d.notes}</p>
-                            <p>
-                              Thrives from zone {d.lowZone} to zone {d.highZone}
-                              .
-                            </p>
-                          </Card.Description>
-                          <Divider />
-                          <Card.Content
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-around',
-                              flexWrap: 'wrap',
-                            }}
-                          >
-                            <div style={{ textAlign: 'left' }}>
-                              <Card.Header
-                                as="h5"
-                                style={{ marginBottom: '5px' }}
-                              >
-                                Soil types
-                              </Card.Header>
-                              <ul className={styles.mUl}>
-                                {d.soilType.map((type, index) => (
-                                  <li key={index}>{type}</li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div style={{ textAlign: 'left' }}>
-                              <Card.Header
-                                as="h5"
-                                style={{ marginBottom: '5px' }}
-                              >
-                                Soil Ph
-                              </Card.Header>
-                              <ul className={styles.mUl}>
-                                {d.soilPH.map((ph, index) => (
-                                  <li key={index}>{ph}</li>
-                                ))}
-                              </ul>
-                            </div>
+                        <Header as="h5" style={{ color: 'var(--dark-gray)' }}>
+                          {d.botanicalName} {d.variety} {d.regionalName}
+                        </Header>
 
-                            <div style={{ textAlign: 'left' }}>
-                              <Card.Header
-                                as="h5"
-                                style={{ marginBottom: '5px' }}
-                              >
-                                Water level
-                              </Card.Header>
-                              <ul className={styles.mUl}>
-                                {d.waterLevel.map((water, index) => (
-                                  <li key={index}>{water}</li>
-                                ))}
-                              </ul>
-                            </div>
-
-                            <div style={{ textAlign: 'left' }}>
-                              <Card.Header
-                                as="h5"
-                                style={{ marginBottom: '5px' }}
-                              >
-                                Sun exposure
-                              </Card.Header>
-                              <ul className={styles.mUl}>
-                                {d.sunlightLevel.map((sun, index) => (
-                                  <li key={index}>{sun}</li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div style={{ textAlign: 'left' }}>
-                              <Card.Header
-                                as="h5"
-                                style={{ marginBottom: '5px' }}
-                              >
-                                Foliage
-                              </Card.Header>
-                              <ul className={styles.mUl}>
-                                {d.foliage.map((f, index) => (
-                                  <li key={index}>{f}</li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div></div>
-
-                            <div
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                flexWrap: 'nowrap',
-                                justifyContent: 'space-between',
-                              }}
+                        <div>
+                          {hasUniqueImage === true ? (
+                            //if it has a unique image, it is clickable
+                            <a
+                              href={`${imageUrl}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
                             >
-                              <div
-                                style={{
-                                  textAlign: 'left',
-                                  marginRight: '15px',
-                                }}
-                              >
-                                <Card.Header
-                                  as="h5"
-                                  style={{ marginBottom: '0' }}
-                                >
+                              <Image
+                                size="small"
+                                wrapped
+                                floated="left"
+                                src={imageUrl}
+                                alt=""
+                              />
+                            </a>
+                          ) : null}
+                          <p>{d.description}</p>
+                          <p>{d.notes}</p>
+                          <p>
+                            Thrives from zone {d.lowZone} to zone {d.highZone}.
+                          </p>
+                        </div>
+                        <Divider />
+                        <div>
+                          <Grid>
+                            <Grid.Row columns="2">
+                              <Grid.Column style={{ textAlign: 'left' }}>
+                                <Header as="h5" style={{ marginBottom: '5px' }}>
+                                  Soil types
+                                </Header>
+                                <ul className={styles.mUl}>
+                                  {d.soilType.map((type, index) => (
+                                    <li key={index}>{type}</li>
+                                  ))}
+                                </ul>
+                              </Grid.Column>
+                              <Grid.Column style={{ textAlign: 'left' }}>
+                                <Header as="h5" style={{ marginBottom: '5px' }}>
+                                  Soil Ph
+                                </Header>
+                                <ul className={styles.mUl}>
+                                  {d.soilPH.map((ph, index) => (
+                                    <li key={index}>{ph}</li>
+                                  ))}
+                                </ul>
+                              </Grid.Column>
+                            </Grid.Row>
+                            <Grid.Row columns="2">
+                              <Grid.Column style={{ textAlign: 'left' }}>
+                                <Header as="h5" style={{ marginBottom: '5px' }}>
+                                  Water level
+                                </Header>
+                                <ul className={styles.mUl}>
+                                  {d.waterLevel.map((water, index) => (
+                                    <li key={index}>{water}</li>
+                                  ))}
+                                </ul>
+                              </Grid.Column>
+                            </Grid.Row>
+                            <Grid.Row columns="2">
+                              <Grid.Column style={{ textAlign: 'left' }}>
+                                <Header as="h5" style={{ marginBottom: '5px' }}>
+                                  Sun exposure
+                                </Header>
+                                <ul className={styles.mUl}>
+                                  {d.sunlightLevel.map((sun, index) => (
+                                    <li key={index}>{sun}</li>
+                                  ))}
+                                </ul>
+                              </Grid.Column>
+                              <Grid.Column style={{ textAlign: 'left' }}>
+                                <Header as="h5" style={{ marginBottom: '5px' }}>
+                                  Foliage
+                                </Header>
+                                <ul className={styles.mUl}>
+                                  {d.foliage.map((f, index) => (
+                                    <li key={index}>{f}</li>
+                                  ))}
+                                </ul>
+                              </Grid.Column>
+                            </Grid.Row>
+
+                            <Grid.Row columns="2">
+                              <Grid.Column style={{ textAlign: 'left' }}>
+                                <Header as="h5" style={{ marginBottom: '0' }}>
                                   Container Size
-                                </Card.Header>
+                                </Header>
                                 <ul className={styles.mUl}>
                                   {d.amount.map((p, index) => (
                                     <li key={index}>{p.containerSize}</li>
                                   ))}
                                 </ul>
-                              </div>
-                              <div style={{ textAlign: 'left' }}>
-                                <Card.Header
-                                  as="h5"
-                                  style={{ marginBottom: '0' }}
-                                >
+                              </Grid.Column>
+                              <Grid.Column style={{ textAlign: 'left' }}>
+                                <Header as="h5" style={{ marginBottom: '0' }}>
                                   Price
-                                </Card.Header>
+                                </Header>
                                 <ul className={styles.mUl}>
                                   {d.amount.map((p, index) => (
                                     <li key={index}>${p.price}</li>
                                   ))}
                                 </ul>
-                              </div>
-                            </div>
-                          </Card.Content>
-                        </Card.Content>
-
-                        <Card.Content extra>
+                              </Grid.Column>
+                            </Grid.Row>
+                          </Grid>
+                        </div>
+                        <div className={styles.modalPush}></div>
+                        <div className={styles.modalFooter}>
                           {hasUniqueImage !== true ? (
                             //if there is a placeholder image, find it on google images
                             <Button
@@ -307,10 +240,10 @@ class SearchResults extends React.Component {
                           >
                             Close
                           </Button>
-                        </Card.Content>
-                      </Card>
-                      {/* end modal content */}
+                        </div>
+                      </div>
                     </div>
+                    {/* end modal content */}
                   </React.Fragment>
                 );
               })}
