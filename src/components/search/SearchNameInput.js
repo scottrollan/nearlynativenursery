@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Form, Input, Button } from 'semantic-ui-react';
+import { Form, Input, Button } from 'semantic-ui-react';
+import { Container } from 'react-bootstrap';
 import styles from './SearchNameInput.module.scss';
 
 const SearchNameInput = (props) => {

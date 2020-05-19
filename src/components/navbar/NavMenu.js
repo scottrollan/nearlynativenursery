@@ -3,9 +3,9 @@ import { NavLink, Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import { Divider } from 'semantic-ui-react';
 import man from '../../media/N3man.png';
-import styles from './Navbar.module.scss';
+import styles from './NavMenu.module.scss';
 
-class Header extends React.Component {
+class NavMenu extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -128,4 +128,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default NavMenu;

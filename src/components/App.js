@@ -8,7 +8,7 @@ import Shipping from './shipping/Shipping';
 import Location from './location/Location';
 import SearchPageMain from './search/SearchPageMain';
 import styles from './App.module.scss';
-import Navbar from './navbar/Navbar';
+import NavMenu from './navbar/NavMenu';
 import Footer from './footer/Footer';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     <React.Fragment>
       <div className={`${styles.App}`}>
         <BrowserRouter>
-          <Navbar />
+          <NavMenu />
           <Switch>
             <Route path="/" exact component={Home}></Route>
             <Route path="/about" component={About}></Route>

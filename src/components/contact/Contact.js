@@ -18,45 +18,39 @@ const Contact = () => {
             action="/"
           >
             <Form.Row>
+              <input type="hidden" name="form-name" value="contact" />
               <Form.Group as={Col} controlId="formGridName">
-                <input type="hidden" name="form-name" value="contact" />
-
-                <label>
-                  Name
-                  <input
-                    type="text"
-                    placeholder="Enter name"
-                    name="name"
-                    required
-                  />
-                </label>
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter name"
+                  name="name"
+                  required
+                />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridEmail">
-                <label>
-                  Email
-                  <input
-                    type="email"
-                    placeholder="Enter email"
-                    name="email"
-                    required
-                  />
-                </label>
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  name="email"
+                  required
+                />
               </Form.Group>
             </Form.Row>
 
             <Form.Row>
               <Form.Group controlId="Textarea" style={{ width: '100%' }}>
-                <label>
-                  Message
-                  <textarea
-                    rows="5"
-                    name="message"
-                    type="textarea"
-                    placeholder="Your message..."
-                    required
-                  />
-                </label>
+                <Form.Label>Message</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows="5"
+                  name="message"
+                  type="textarea"
+                  placeholder="Your message..."
+                  required
+                />
               </Form.Group>
             </Form.Row>
 
