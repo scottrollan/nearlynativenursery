@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
+// import { Icon } from 'semantic-ui-react';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -15,12 +15,12 @@ const Footer = () => {
           <p>776 McBride Rd | Fayetteville, GA | 30215</p>
         </a>
         <div className={styles.followUs}>
-          <Icon className="facebook clickable" />
-          <Icon className="instagram  clickable" />
-          <Icon className="twitter square  clickable" />
+          <i className="fab fa-facebook-square clickable"></i>
+          <i className="fab fa-instagram-square  clickable"></i>
+          <i className="fab fa-twitter-square  clickable"></i>
         </div>
         <div className={styles.copyright}>
-          <Icon className="copyright outline" style={{ diplay: 'inline' }} />
+          <i className="far fa-copyright" style={{ diplay: 'inline' }}></i>
           <span>
             {' '}
             copyright Nearly Native Nursery | All Rights Reserved | 2020

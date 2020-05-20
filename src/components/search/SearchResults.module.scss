@@ -9,7 +9,7 @@
   border: 1px var(--dark-gray) solid;
   border-radius: 1rem;
   margin: 24px;
-  max-width: 275px;
+  width: 275px;
 }
 .descr {
   overflow-y: hidden;
@@ -34,19 +34,35 @@
 }
 .modalBody {
   position: absolute;
-  margin: 10vh 20vw;
+  margin: 10vh calc(50vw - 383.5px);
   max-height: 80vh;
-  max-width: 60vw;
+  width: 100vw;
+  max-width: $breakpoint-medium;
   overflow-x: hidden;
   overflow-y: scroll;
   background: #ffffff;
   border: 1px var(--dark-gray) solid;
-  padding: 1rem;
   z-index: 9999;
+  border-radius: 1rem;
 }
 
-.modalImage {
-  width: 200px;
+.disableScrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+  }
+}
+
+.modalHeader {
+  background-color: var(--lightest-gray);
+  border-bottom: 1px solid var(--light-gray);
+  padding: 1rem;
+}
+.imageWrapper {
+  width: 275px;
+  height: 250px;
   max-width: 50%;
   height: auto;
   float: right;
@@ -55,4 +71,23 @@
 }
 .modalDescr {
   text-align: left;
+  margin: 1rem;
+}
+
+.modalFooter {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  border-top: 1px solid var(--light-gray);
+  background-color: var(--lightest-gray);
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: $breakpoint-medium) {
+  .modalBody {
+    margin: 5vh 10vw;
+    max-height: 90vh;
+    width: 80vw;
+    max-width: $breakpoint-medium;
+  }
 }

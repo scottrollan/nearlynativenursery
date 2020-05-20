@@ -1,7 +1,6 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
-import { Divider } from 'semantic-ui-react';
 import man from '../../media/N3man.png';
 import styles from './NavMenu.module.scss';
 
@@ -16,68 +15,61 @@ class NavMenu extends React.Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link>
-                <NavLink
-                  style={{ color: 'inherit' }}
-                  className="item"
-                  to="/"
-                  exact
-                >
-                  Home
-                </NavLink>
+              <Nav.Link
+                style={{ color: 'inherit' }}
+                className="item"
+                to="/"
+                exact="true"
+              >
+                Home
               </Nav.Link>
 
-              <Nav.Link>
-                <NavLink
-                  style={{ color: 'inherit' }}
-                  className="item"
-                  to="/contact"
-                >
-                  Contact
-                </NavLink>
+              <Nav.Link
+                style={{ color: 'inherit' }}
+                className="item"
+                to="/contact"
+              >
+                Contact
               </Nav.Link>
-              <Nav.Link>
-                <NavLink
-                  style={{ color: 'inherit' }}
-                  className="item"
-                  to="/search"
-                >
-                  Search
-                </NavLink>
+              <Nav.Link
+                style={{ color: 'inherit' }}
+                className="item"
+                to="/search"
+              >
+                Search
               </Nav.Link>
 
               <NavDropdown title="About">
-                <NavDropdown.Item>
-                  <Link className={styles.dropdownLink} to="/about">
-                    The Nursery
-                  </Link>
+                <NavDropdown.Item className={styles.dropdownLink} href="/about">
+                  The Nursery
+                  {/* </Link> */}
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link className={styles.dropdownLink} to="/hours">
-                    Hours of Operation
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link className={styles.dropdownLink} to="/shipping">
-                    Shipping Costs
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link className={styles.dropdownLink} to="/location">
-                    Location
-                  </Link>
-                </NavDropdown.Item>
-                <Divider />
-                <NavDropdown.Item>
-                  <Link
-                    className={styles.dropdownLink}
-                    to="https://planthardiness.ars.usda.gov/PHZMWeb/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    USDA Hardiness Zones
-                  </Link>
-                </NavDropdown.Item>
+                {/* <NavDropdown.Item> */}
+                <Link className={styles.dropdownLink} to="/hours">
+                  Hours of Operation
+                </Link>
+                {/* </NavDropdown.Item>
+                <NavDropdown.Item> */}
+                <Link className={styles.dropdownLink} to="/shipping">
+                  Shipping Costs
+                </Link>
+                {/* </NavDropdown.Item>
+                <NavDropdown.Item> */}
+                <Link className={styles.dropdownLink} to="/location">
+                  Location
+                </Link>
+                {/* </NavDropdown.Item> */}
+                <hr />
+                {/* <NavDropdown.Item> */}
+                <Link
+                  className={styles.dropdownLink}
+                  to="https://planthardiness.ars.usda.gov/PHZMWeb/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  USDA Hardiness Zones
+                </Link>
+                {/* </NavDropdown.Item> */}
               </NavDropdown>
             </Nav>
             <Nav>

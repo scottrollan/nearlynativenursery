@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Row, Col, Container, Image } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import defaultImage from '../../media/no-image-available-icon.png';
 import styles from './SearchResults.module.scss';
 import PlantModal from './PlantModal';
@@ -7,17 +7,13 @@ import PlantModal from './PlantModal';
 class SearchResults extends React.Component {
   showModal(whichModal) {
     document.getElementById(whichModal).style.display = 'inherit';
-    document.querySelector('body').style.overflowY = 'hidden';
-  }
-  hideModal(whichModal) {
-    document.getElementById(whichModal).style.display = 'none';
-    document.querySelector('body').style.overflowY = 'auto';
+    document.querySelector('html').style.overflowY = 'hidden';
   }
 
   render() {
     return (
       <div id="resultsArea">
-        <Button secondary={true}>Return to Search</Button>
+        <Button secondary="true">Return to Search</Button>
         <h3>
           We found {this.props.resultsArray.length} items that match that
           criteria:
@@ -28,8 +24,7 @@ class SearchResults extends React.Component {
             ? null
             : this.props.resultsArray.map((p) => {
                 const modalId = p._id;
-                const descrIntro =
-                  p.description.split(' ').slice(0, 40).join(' ') + '...';
+                window['show' + modalId] = false;
                 let imageUrl = '';
                 let hasUniqueImage = false;
                 if (
@@ -51,7 +46,7 @@ class SearchResults extends React.Component {
                       src={imageUrl}
                       style={
                         hasUniqueImage
-                          ? null
+                          ? { width: '275px' }
                           : { width: '70px', margin: '0 calc(50% - 35px)' }
                       }
                     />
@@ -59,22 +54,25 @@ class SearchResults extends React.Component {
                       <Card.Title>
                         {p.botanicalName} {p.variety}
                       </Card.Title>
-                      <Card.Text className={styles.descr}>
+                      {/* <Card.Text className={styles.descr}>
                         {descrIntro}
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                     <Card.Footer>
-                      <Button onClick={() => this.showModal(p._id)}>
+                      {/* <Button onClick={() => this.showModal(p._id)}> */}
+                      <Button onClick={() => this.showModal(modalId)}>
                         See Details
                       </Button>
                       <PlantModal
-                        id={p._id}
+                        // show={`show${modalId}`}
+                        id={modalId}
                         botanicalName={p.botanicalName}
                         commonName={p.commonName}
                         variety={p.variety}
                         imageUrl={imageUrl}
                         description={p.description}
                         hasUniqueImage={hasUniqueImage}
+                        // hideModal={this.hideModal(modalId)}
                       />
                     </Card.Footer>
                   </Card>

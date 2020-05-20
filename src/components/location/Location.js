@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Icon } from 'semantic-ui-react';
+// import { Icon } from 'semantic-ui-react';
+import { Container } from 'react-bootstrap';
 import name from '../../media/N3nameTransparent.png';
 import styles from './Location.module.scss';
 
@@ -17,7 +18,7 @@ const Location = () => {
         >
           {' '}
           <p className={styles.mapLink}>
-            <Icon className="map marker alternate" />
+            <i className="fas fa-map-marker-alt" />
             See us on the map...
           </p>
         </a>
