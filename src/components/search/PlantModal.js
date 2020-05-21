@@ -9,10 +9,12 @@ const PlantModal = (props) => {
   };
 
   return (
-    <div id={props.id} className={styles.modal}>
+    <div id={props.id} className={[`${styles.modal}`]}>
       <div className={styles.overlay} onClick={() => hideModal(props.id)}></div>
       <div
-        className={[`${styles.modalBody} ${styles.disableScrollbar}`]}
+        className={[
+          `${styles.modalBody} ${styles.disableScrollbar} ${styles.fadeIn}`,
+        ]}
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>
@@ -28,7 +30,7 @@ const PlantModal = (props) => {
             </a>
           ) : (
             <Button
-              secondary
+              secondary="true"
               onClick={() =>
                 window.open(
                   `http://www.google.com/search?q=${props.botanicalName} ${props.variety}&tbm=isch`,

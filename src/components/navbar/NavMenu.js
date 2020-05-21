@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import man from '../../media/N3man.png';
 import styles from './NavMenu.module.scss';
@@ -15,95 +15,93 @@ class NavMenu extends React.Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link
+              <Link
                 style={{ color: 'inherit' }}
-                className="item"
+                className="item nav-link"
                 to="/"
                 exact="true"
               >
                 Home
-              </Nav.Link>
+              </Link>
 
-              <Nav.Link
+              <Link
                 style={{ color: 'inherit' }}
-                className="item"
+                className="item nav-link"
                 to="/contact"
               >
                 Contact
-              </Nav.Link>
-              <Nav.Link
+              </Link>
+              <Link
                 style={{ color: 'inherit' }}
-                className="item"
+                className="item nav-link"
                 to="/search"
               >
                 Search
-              </Nav.Link>
+              </Link>
 
-              <NavDropdown title="About">
-                <NavDropdown.Item className={styles.dropdownLink} href="/about">
+              <NavDropdown title="About" className="item">
+                <Link
+                  className={[`${styles.dropdownLink} dropdown-item nav-link`]}
+                  to="/about"
+                >
                   The Nursery
-                  {/* </Link> */}
-                </NavDropdown.Item>
-                {/* <NavDropdown.Item> */}
-                <Link className={styles.dropdownLink} to="/hours">
+                </Link>
+                <Link
+                  className={[`${styles.dropdownLink} dropdown-item nav-link`]}
+                  to="/hours"
+                >
                   Hours of Operation
                 </Link>
-                {/* </NavDropdown.Item>
-                <NavDropdown.Item> */}
-                <Link className={styles.dropdownLink} to="/shipping">
+                <Link
+                  className={[`${styles.dropdownLink} dropdown-item nav-link`]}
+                  to="/shipping"
+                >
                   Shipping Costs
                 </Link>
-                {/* </NavDropdown.Item>
-                <NavDropdown.Item> */}
-                <Link className={styles.dropdownLink} to="/location">
+
+                <Link
+                  className={[`${styles.dropdownLink} dropdown-item nav-link`]}
+                  to="/location"
+                >
                   Location
                 </Link>
-                {/* </NavDropdown.Item> */}
                 <hr />
-                {/* <NavDropdown.Item> */}
-                <Link
-                  className={styles.dropdownLink}
-                  to="https://planthardiness.ars.usda.gov/PHZMWeb/"
+                <a
+                  className={[`${styles.dropdowna} dropdown-item nav-link`]}
+                  href="https://planthardiness.ars.usda.gov/PHZMWeb/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   USDA Hardiness Zones
-                </Link>
-                {/* </NavDropdown.Item> */}
+                </a>
               </NavDropdown>
             </Nav>
             <Nav>
-              <NavDropdown title="Our Friends">
-                <NavDropdown.Item>
-                  <Link
-                    className={styles.dropdownLink}
-                    to="https://www.rarepalmseeds.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Rare Palm Seeds
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link
-                    className={styles.dropdownLink}
-                    to="https://gnps.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Georgia Native Plant Society
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link
-                    className={styles.dropdownLink}
-                    to="https://garivers.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Georgia River Network
-                  </Link>
-                </NavDropdown.Item>
+              <NavDropdown title="Our Friends" className="nav-link">
+                <a
+                  className={[`${styles.dropdowna} dropdown-item nav-link`]}
+                  href="https://www.rarepalmseeds.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Rare Palm Seeds
+                </a>
+                <a
+                  className={[`${styles.dropdowna} dropdown-item nav-link`]}
+                  href="https://gnps.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Georgia Native Plant Society
+                </a>
+                <a
+                  className={[`${styles.dropdowna} dropdown-item nav-link`]}
+                  href="https://garivers.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Georgia River Network
+                </a>
               </NavDropdown>
               <Form>
                 <FormControl
