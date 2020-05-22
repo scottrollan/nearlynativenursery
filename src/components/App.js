@@ -18,6 +18,13 @@ function App() {
         <BrowserRouter>
           <NavMenu />
           <Switch>
+            <Route
+              path="/someobscurenamethatnobodywillmmistakenlyenter"
+              component={NavMenu}
+              style={{ display: 'none' }}
+            >
+              Nav
+            </Route>
             <Route path="/" exact component={Home}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/contact" component={Contact}></Route>

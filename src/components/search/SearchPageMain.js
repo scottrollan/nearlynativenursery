@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import SearchNameInput from './SearchNameInput';
+import SearchNameNavInput from './SearchNameNavInput';
 import SearchResults from './SearchResults';
 import SearchConditionsInput from './SearchConditionsInput';
 import styles from './SearchPageMain.module.scss';
@@ -55,6 +56,11 @@ class SearchPageMain extends React.Component {
                 this.searchNow(filters, this.compileResults)
               }
             />
+            {/* <SearchNameNavInput
+              searchByName={(filters) =>
+                this.searchNow(filters, this.compileResults)
+              }
+            /> */}
             <hr />
             <h1>...or by Growing Conditions</h1>
             <div>

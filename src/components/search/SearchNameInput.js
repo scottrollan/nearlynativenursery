@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import styles from './SearchNameInput.module.scss';
 
 const SearchNameInput = (props) => {
@@ -18,21 +18,20 @@ const SearchNameInput = (props) => {
   };
 
   return (
-    <Container>
-      <Form onSubmit={(event) => searchByName(event)}>
-        <input
-          className={styles.searchInput}
-          type="text"
-          name="searchName"
-          value={searchName}
-          onChange={(e) => setSearchName(e.target.value)}
-        />
+    <Form onSubmit={(event) => searchByName(event)}>
+      <input
+        placeholder="Search"
+        className={[`${styles.searchInput} sm-2`]}
+        type="text"
+        name="searchName"
+        value={searchName}
+        onChange={(e) => setSearchName(e.target.value)}
+      />
 
-        <Button className={styles.nameButton} type="submit">
-          Search By Name
-        </Button>
-      </Form>
-    </Container>
+      <Button className={styles.nameButton} type="submit">
+        Search By Name
+      </Button>
+    </Form>
   );
 };
 

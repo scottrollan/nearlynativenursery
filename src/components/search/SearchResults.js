@@ -6,13 +6,14 @@ import PlantModal from './PlantModal';
 
 class SearchResults extends React.Component {
   showModal(whichModal) {
-    document.getElementById(whichModal).style.display = 'inherit';
+    const modal = document.getElementById(whichModal);
+    modal.style.display = 'inherit';
     document.querySelector('html').style.overflowY = 'hidden';
   }
 
   render() {
     return (
-      <div id="resultsArea">
+      <div id="resultsArea" style={{ display: 'none' }}>
         <Button secondary="true">Return to Search</Button>
         <h3>
           We found {this.props.resultsArray.length} items that match that
@@ -54,17 +55,12 @@ class SearchResults extends React.Component {
                       <Card.Title>
                         {p.botanicalName} {p.variety}
                       </Card.Title>
-                      {/* <Card.Text className={styles.descr}>
-                        {descrIntro}
-                      </Card.Text> */}
                     </Card.Body>
                     <Card.Footer>
-                      {/* <Button onClick={() => this.showModal(p._id)}> */}
                       <Button onClick={() => this.showModal(modalId)}>
                         See Details
                       </Button>
                       <PlantModal
-                        // show={`show${modalId}`}
                         id={modalId}
                         botanicalName={p.botanicalName}
                         commonName={p.commonName}
@@ -72,7 +68,6 @@ class SearchResults extends React.Component {
                         imageUrl={imageUrl}
                         description={p.description}
                         hasUniqueImage={hasUniqueImage}
-                        // hideModal={this.hideModal(modalId)}
                       />
                     </Card.Footer>
                   </Card>

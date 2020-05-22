@@ -7,6 +7,7 @@ const PlantModal = (props) => {
     document.getElementById(thisModal).style.display = 'none';
     document.querySelector('html').style.overflowY = 'auto';
   };
+  window.location = '#';
 
   return (
     <div id={props.id} className={[`${styles.modal}`]}>

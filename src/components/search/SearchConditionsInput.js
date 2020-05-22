@@ -160,37 +160,9 @@ class SearchConditionsInput extends React.Component {
       } else if (f.name === 'zone') {
         indexStr = `lowZone <= ${f.value} && highZone >= ${f.value}`;
       }
-      uncompiledArray.push(indexStr);
+      return uncompiledArray.push(indexStr);
     });
-    filters = uncompiledArray.join(' && ');
-    console.log('filters: ' + filters);
-    // form.map((cond) => {
-    //   if (cond.value !== false || cond.value !== null) {
-    //     if (filters !== '' && cond.value !== false && cond.value !== null) {
-    //       //if filters has a value already and a selection is made
-    //       filters = filters.concat(' && '); // adds " && " before the subsequent filter selection
-    //     }
-    //     if (cond.value === true) {
-    //       //deals with selected checkbox
-    //       filters = filters.concat(`"${cond.name}" in ${cond.array}`); //ex: "evergreen" in foliage
-    //     }
-    //     if (cond.name === 'category' && cond.value !== '') {
-    //       // if a category is selected
-    //       filters = filters.concat(`${cond.name} == '${cond.value}'`); //ex: category == 'shrubs'
-    //     }
-    //     if (cond.name === 'zone' && cond.value > 0) {
-    //       //deals with numeric "zone" selection
-    //       filters = filters.concat(
-    //         `lowZone <= ${cond.value} && highZone >= ${cond.value}`
-    //       ); //selection zone is between low and high zones, or equal to one of them
-    //     }
-    //     console.log(filters);
-
-    //     return filters;
-    //   }
-    // });
-
-    // un-comment the below after confirming the above works
+    filters = uncompiledArray.join(' && '); //turns array into string with conditions joined by "&&"
     this.props.searchByConditions(filters);
   };
 
