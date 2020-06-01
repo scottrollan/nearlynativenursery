@@ -8,15 +8,15 @@ import styles from './SearchResults.module.scss';
 class SearchResults extends React.Component {
   showModal = (whichModal) => {
     const modal = document.getElementById(whichModal);
-    modal.style.display = 'inherit';
+    modal.style.display = 'initial';
     document.querySelector('html').style.overflowY = 'hidden';
   };
 
   closeResults = () => {
     document.getElementById('resultsArea').style.display = 'none';
     document.getElementById('spinner').style.display = 'none';
-    document.getElementById('searchCondButton').style.display = 'inherit';
-    document.getElementById('searchArea').style.display = 'inherit';
+    document.getElementById('searchCondButton').style.display = 'initial';
+    document.getElementById('searchArea').style.display = 'initial';
   };
 
   render() {
@@ -52,17 +52,42 @@ class SearchResults extends React.Component {
                 return (
                   <div key={modalId}>
                     <Card className={styles.card}>
-                      <Card.Header as="h3">{p.commonName}</Card.Header>
-                      <Card.Img
-                        variant="top"
-                        src={imageUrl}
+                      <Card.Header
+                        className={styles.centerMiddle}
+                        as="h3"
                         style={
-                          hasUniqueImage
-                            ? { width: '275px' }
-                            : { width: '70px', margin: '0 calc(50% - 35px)' }
+                          p.commonName.length > 25 ? { fontSize: '20px' } : null
                         }
-                      />
-                      <Card.Body>
+                      >
+                        {p.commonName}
+                      </Card.Header>
+                      <div
+                        style={{
+                          height: '205px',
+                          width: '100%',
+                          overflowY: 'hidden',
+                        }}
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={imageUrl}
+                          style={
+                            hasUniqueImage
+                              ? {
+                                  width: '100%',
+                                  position: 'relative',
+                                  top: '50%',
+                                  transform: 'translateY(-50%)',
+                                }
+                              : {
+                                  height: '75px',
+                                  width: 'auto',
+                                  marginTop: '65px',
+                                }
+                          }
+                        />
+                      </div>
+                      <Card.Body className={styles.centerMiddle}>
                         <Card.Title>
                           {p.botanicalName} {p.variety}
                         </Card.Title>
@@ -81,6 +106,12 @@ class SearchResults extends React.Component {
                       imageUrl={imageUrl}
                       description={p.description}
                       hasUniqueImage={hasUniqueImage}
+                      soilType={p.soilType}
+                      pH={p.soilPH}
+                      water={p.waterLevel}
+                      sunLevel={p.sunlightLevel}
+                      foliage={p.foliage}
+                      unit={p.amount}
                     />
                   </div>
                 );

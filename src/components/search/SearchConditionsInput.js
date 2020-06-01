@@ -207,52 +207,55 @@ class SearchConditionsInput extends React.Component {
             <label htmlFor="category">
               <div style={{ textDecoration: 'underline' }}>Category</div>
             </label>
-            <select
-              style={{ margin: '0' }}
-              name="category"
-              value={this.state.category}
-              onChange={this.handleChange}
-            >
-              <option value="">--any--</option>
-              <option value="ferns">Ferns</option>
-              <option value="grasses">Grasses</option>
-              <option value="opuntia">Opuntia</option>
-              <option value="palms">Palms</option>
-              <option value="perennials">Perennials</option>
-              <option value="seeds">Seeds</option>
-              <option value="shrubs">Shrubs</option>
-              <option value="trees">Trees</option>
-              <option value="vines">Vines</option>
-              <option value="yucca">Yucca</option>
-            </select>
+            <div>
+              <select
+                style={{ margin: '0' }}
+                name="category"
+                value={this.state.category}
+                onChange={this.handleChange}
+              >
+                <option value="">--any--</option>
+                <option value="ferns">Ferns</option>
+                <option value="grasses">Grasses</option>
+                <option value="opuntia">Opuntia</option>
+                <option value="palms">Palms</option>
+                <option value="perennials">Perennials</option>
+                <option value="seeds">Seeds</option>
+                <option value="shrubs">Shrubs</option>
+                <option value="trees">Trees</option>
+                <option value="vines">Vines</option>
+                <option value="yucca">Yucca</option>
+              </select>
+            </div>
           </div>
 
-          {/* NOT FOR USE UNLESS/UNTIL lowZone and highZone ARE CONVERTED TO NUMBER FIELDS */}
           <div className={styles.adaptiveCol} style={{ textAlign: 'center' }}>
             <label htmlFor="zone">
               <div style={{ textDecoration: 'underline' }}>Hardiness Zone</div>
             </label>
-            <select
-              type="number"
-              name="zone"
-              value={this.state.zone}
-              onChange={this.handleChange}
-              style={{ display: 'inline-block', margin: '0 10px' }}
-            >
-              <option value={0}>--any--</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
+            <div>
+              <select
+                type="number"
+                name="zone"
+                value={this.state.zone}
+                onChange={this.handleChange}
+                style={{ display: 'inline-block', margin: '0 10px' }}
+              >
+                <option value={0}>--any--</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>
             <a
               href="https://garden.org/nga/zipzone/"
               target="_blank"

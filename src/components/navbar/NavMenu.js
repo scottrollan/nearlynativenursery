@@ -16,6 +16,14 @@ const NavMenu = () => {
 
   const searchByName = async (event) => {
     event.preventDefault();
+    const element1 = document.getElementById('resultsArea');
+    const element2 = document.getElementById('resultsAreaNav');
+    if (typeof element1 !== 'undefined' && element1 !== null) {
+      element1.style.display = 'none';
+    }
+    if (typeof element2 !== 'undefined' && element2 !== null) {
+      element2.style.display = 'none';
+    }
     let inputText = searchValue.toLowerCase();
     let botanicalInput = inputText.replace(/^\w/, (c) => c.toUpperCase()); // capitalize first letter of first word only
     let commonInput = inputText
@@ -37,11 +45,12 @@ const NavMenu = () => {
     let response = await client.fetch(query);
 
     if (response === undefined || response.length === 0) {
-      // document.getElementById('spinner').style.display = 'none';
-      // document.getElementById('searchCondButton').style.display =
-      //   'inline-block';
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('searchCondButton').style.display = 'initial';
       alert('...no plants match those specifications...');
       document.getElementById('resultsAreaNav').style.display = 'none';
+      history.push('/search');
+      document.getElementById('searchArea').style.display = 'initial';
     } else {
       setForm([...response]);
       history.push('/search');

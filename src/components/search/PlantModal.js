@@ -52,26 +52,44 @@ const PlantModal = (props) => {
             <Col className={styles.col} xs={6} md={4}>
               <div className={styles.condHeader}>Soil Type</div>
               {props.soilType.map((soil) => (
-                <div className={styles.condListItem}>- {soil}</div>
+                <div className={styles.condListItem}>{soil}</div>
               ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
-              Soil Ph
+              <div className={styles.condHeader}>Soil pH</div>
+              {props.pH.map((pH) => (
+                <div className={styles.condListItem}>{pH}</div>
+              ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
-              Water Level
+              <div className={styles.condHeader}>Water Level</div>
+              {props.water.map((w) => (
+                <div className={styles.condListItem}>{w}</div>
+              ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
-              Sun Exposure
+              <div className={styles.condHeader}>Sun Exposure</div>
+              {props.sunLevel.map((sun) => (
+                <div className={styles.condListItem}>{sun}</div>
+              ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
-              Foliage
+              <div className={styles.condHeader}>Foliage</div>
+              {props.foliage.map((f) => (
+                <div className={styles.condListItem}>{f}</div>
+              ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
-              Container Size
-            </Col>
-            <Col className={styles.col} xs={6} md={4}>
-              Price
+              <div className={styles.condHeader}>Unit Size/Price</div>
+              {props.unit.map((u) => (
+                <div className={[`${styles.condListItem} ${styles.unitDiv}`]}>
+                  <span>{u.containerSize} </span>
+
+                  {u.price !== undefined && u.price !== 0 ? (
+                    <span> ${u.price.toFixed(2)}</span>
+                  ) : null}
+                </div>
+              ))}
             </Col>
           </Row>
         </Container>

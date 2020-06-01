@@ -147,6 +147,10 @@
   list-style: none;
   color: var(--medium-gray);
 }
+.unitDiv {
+  display: flex;
+  justify-content: space-between;
+}
 
 @media screen and (max-width: $breakpoint-medium) {
   .modalBody {

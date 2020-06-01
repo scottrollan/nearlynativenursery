@@ -21,15 +21,15 @@ const SearchPageMain = () => {
     const query = `*[${filters}] | order(category asc) | order(botanicalName asc)`;
 
     let response = await client.fetch(query);
-    setForm([...response]);
 
-    if (form === undefined || form.length === 0) {
-      // document.getElementById('spinner').style.display = 'none';
-      // document.getElementById('searchCondButton').style.display =
-      //   'inline-block';
+    if (response === undefined || response.length === 0) {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('searchCondButton').style.display =
+        'inline-block';
       alert('...no plants match those specifications...');
       document.getElementById('resultsArea').style.display = 'none';
     } else {
+      setForm([...response]);
       document.getElementById('resultsArea').style.display = 'block';
       document.getElementById('searchArea').style.display = 'none';
       window.location.href = '#resultsArea';
@@ -52,7 +52,7 @@ const SearchPageMain = () => {
           </div>
         </div>
       </section>
-      <SearchResults resultsArray={form} />
+      <SearchResults buttonText="Return to Search" resultsArray={form} />
     </Container>
   );
 };

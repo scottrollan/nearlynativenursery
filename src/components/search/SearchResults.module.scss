@@ -16,6 +16,17 @@
   border-radius: 1rem;
   margin: 24px;
   width: 275px;
+  transition: all 0.2s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 10px 15px var(--light-gray);
+}
+.centerMiddle {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .descr {
   overflow-y: hidden;
