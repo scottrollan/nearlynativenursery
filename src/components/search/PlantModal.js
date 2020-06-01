@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Container, Row, Col, Button } from 'react-bootstrap';
-import styles from './SearchResults.module.scss';
+import styles from './PlantModal.module.scss';
 
 const PlantModal = (props) => {
   const hideModal = (thisModal) => {
@@ -48,26 +48,29 @@ const PlantModal = (props) => {
 
         <p className={styles.modalDescr}>{props.description}</p>
         <Container>
-          <Row className="show-grid">
-            <Col xs={6} md={4}>
-              Soil Types
+          <Row className={'show-grid'}>
+            <Col className={styles.col} xs={6} md={4}>
+              <div className={styles.condHeader}>Soil Type</div>
+              {props.soilType.map((soil) => (
+                <div className={styles.condListItem}>- {soil}</div>
+              ))}
             </Col>
-            <Col xs={6} md={4}>
+            <Col className={styles.col} xs={6} md={4}>
               Soil Ph
             </Col>
-            <Col xs={6} md={4}>
+            <Col className={styles.col} xs={6} md={4}>
               Water Level
             </Col>
-            <Col xs={6} md={4}>
+            <Col className={styles.col} xs={6} md={4}>
               Sun Exposure
             </Col>
-            <Col xs={6} md={4}>
+            <Col className={styles.col} xs={6} md={4}>
               Foliage
             </Col>
-            <Col xs={6} md={4}>
+            <Col className={styles.col} xs={6} md={4}>
               Container Size
             </Col>
-            <Col xs={6} md={4}>
+            <Col className={styles.col} xs={6} md={4}>
               Price
             </Col>
           </Row>

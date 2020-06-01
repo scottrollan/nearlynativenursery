@@ -265,7 +265,7 @@ class SearchConditionsInput extends React.Component {
           </div>
         </div>
 
-        <div style={{ minHeight: '105px' }}>
+        <div className={styles.spinnerDiv}>
           <div className={styles.loader} id="spinner"></div>
           <button
             className={styles.searchCondButton}

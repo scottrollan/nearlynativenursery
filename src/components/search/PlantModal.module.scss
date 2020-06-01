@@ -3,3 +3,156 @@
 .modalImage {
   max-width: 300px;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 1000vh;
+  z-index: 9990;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay);
+  z-index: 9995;
+}
+.modalBody {
+  position: absolute;
+  margin: 10vh calc(50vw - 383.5px);
+  max-height: 80vh;
+  width: 100vw;
+  max-width: $breakpoint-medium;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #ffffff;
+  border: 1px var(--dark-gray) solid;
+  z-index: 9999;
+  border-radius: 1rem;
+}
+
+.disableScrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+  }
+}
+
+.modalHeader {
+  background-color: var(--lightest-gray);
+  border-bottom: 1px solid var(--light-gray);
+  padding: 1rem;
+}
+.imageWrapper {
+  width: 275px;
+  height: 250px;
+  max-width: 50%;
+  height: auto;
+  float: right;
+  margin: 1rem 0 1rem 1rem;
+  border-radius: 1rem;
+}
+.modalDescr {
+  text-align: left;
+  margin: 1rem;
+}
+
+.modalFooter {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  border-top: 1px solid var(--light-gray);
+  background-color: var(--lightest-gray);
+  display: flex;
+  justify-content: center;
+}
+
+.fadeIn {
+  animation: fade ease 0.5s;
+  -webkit-animation: fade ease 0.5s;
+  -moz-animation: fade ease 0.5s;
+  -o-animation: fade ease 0.5s;
+  -ms-animation: fade ease 0.5s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-ms-keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.col {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.condHeader {
+  text-decoration: underline;
+  margin-left: 0;
+}
+.condListItem {
+  list-style: none;
+  color: var(--medium-gray);
+}
+
+@media screen and (max-width: $breakpoint-medium) {
+  .modalBody {
+    margin: 5vh 10vw;
+    max-height: 90vh;
+    width: 80vw;
+    max-width: $breakpoint-medium;
+  }
+}

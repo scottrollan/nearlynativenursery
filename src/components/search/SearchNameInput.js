@@ -3,11 +3,11 @@ import { Form, Button } from 'react-bootstrap';
 import styles from './SearchNameInput.module.scss';
 
 const SearchNameInput = (props) => {
-  const [searchName, setSearchName] = useState('');
+  const [searchValue, setSearchValue] = useState('');
 
   const searchByName = (event) => {
     event.preventDefault();
-    let inputText = searchName.toLowerCase();
+    let inputText = searchValue.toLowerCase();
     let botanicalInput = inputText.replace(/^\w/, (c) => c.toUpperCase()); // capitalize first letter of first word only
     let commonInput = inputText
       .split(' ')
@@ -18,14 +18,14 @@ const SearchNameInput = (props) => {
   };
 
   return (
-    <Form onSubmit={(event) => searchByName(event)}>
+    <Form onSubmit={(event) => searchByName(event)} className="nav-link">
       <input
         placeholder="Search"
-        className={[`${styles.searchInput} sm-2`]}
+        className={styles.searchInput}
         type="text"
         name="searchName"
-        value={searchName}
-        onChange={(e) => setSearchName(e.target.value)}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
       />
 
       <Button className={styles.nameButton} type="submit">

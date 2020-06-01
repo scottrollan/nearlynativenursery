@@ -7,6 +7,7 @@ import Hours from './hours/Hours';
 import Shipping from './shipping/Shipping';
 import Location from './location/Location';
 import SearchPageMain from './search/SearchPageMain';
+import SearchResults from './search/SearchResults';
 import styles from './App.module.scss';
 import NavMenu from './navbar/NavMenu';
 import Footer from './footer/Footer';
@@ -18,22 +19,23 @@ function App() {
         <BrowserRouter>
           <NavMenu />
           <Switch>
-            <Route
+            {/* <Route
               path="/someobscurenamethatnobodywillmmistakenlyenter"
               component={NavMenu}
-              style={{ display: 'none' }}
             >
               Nav
-            </Route>
+            </Route> */}
             <Route path="/" exact component={Home}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/contact" component={Contact}></Route>
             <Route path="/search" component={SearchPageMain}></Route>
+            <Route path="/searchResults" component={SearchResults}></Route>
             <Route path="/hours" component={Hours}></Route>
             <Route path="/shipping" component={Shipping}></Route>
             <Route path="/location" component={Location}></Route>
           </Switch>
         </BrowserRouter>
+        {/* <SearchResults style={{ display: 'none' }} /> */}
         <div className={styles.push}></div>
       </div>
       <Footer />

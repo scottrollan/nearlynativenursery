@@ -17,6 +17,12 @@ hr {
   font-size: calc(12px + 0.6vw);
   vertical-align: top;
 }
+.spinnerDiv {
+  min-height: 105px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .searchCondButton {
   width: 90%;
   max-width: 300px;
@@ -38,8 +44,6 @@ hr {
 }
 .loader {
   display: none;
-  position: absolute;
-  margin: 45px 50%;
 }
 
 .showSpinner {

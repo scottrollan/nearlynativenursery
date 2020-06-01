@@ -36,7 +36,9 @@
   align-self: flex-start;
   border-radius: 0 10px 10px 0;
 }
-
+.tabText {
+  font-size: calc(14px + 1vw);
+}
 .blinking {
   color: black;
   animation: blink 1.5s linear infinite;

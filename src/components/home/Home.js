@@ -8,12 +8,12 @@ const Home = () => {
     <div className={styles.parallaxHome} style={{ padding: '2vh 0' }}>
       <div style={{ paddin: 0 }}>
         <img src={name} alt="" style={{ width: '100%' }} />
-        <h3 style={{ margin: '0 0' }}>
+        <div className={styles.tabText} style={{ margin: '0 0' }}>
           is your key to eye catching landscaping. Come visit our gardens for
           ideas!{' '}
-        </h3>
+        </div>
       </div>
-      <div>
+      <div className={styles.tabText}>
         <p>
           Proud to be selected as a{' '}
           <strong>
@@ -34,7 +34,7 @@ const Home = () => {
         </p>
       </div>
       <div>
-        <h4>
+        <div className={styles.tabText}>
           Try our smart{' '}
           <Link
             to="/search"
@@ -46,7 +46,7 @@ const Home = () => {
           to select a plant for specific growing conditions. Hot or dry, sun or
           shade, sand to clay, we can guide you to the right native plant to
           create a special landscape that will flourish.
-        </h4>
+        </div>
       </div>
     </div>
   );

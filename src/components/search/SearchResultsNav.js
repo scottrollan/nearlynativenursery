@@ -5,7 +5,7 @@ import PlantModal from './PlantModal';
 import defaultImage from '../../media/no-image-available-icon.png';
 import styles from './SearchResults.module.scss';
 
-class SearchResults extends React.Component {
+class SearchResultsNav extends React.Component {
   showModal = (whichModal) => {
     const modal = document.getElementById(whichModal);
     modal.style.display = 'inherit';
@@ -21,7 +21,7 @@ class SearchResults extends React.Component {
 
   render() {
     return (
-      <div className={styles.resultsArea} id="resultsArea">
+      <div className={styles.resultsArea} id="resultsAreaNav">
         <Button secondary="true" onClick={() => this.closeResults()}>
           {this.props.buttonText}
         </Button>
@@ -81,6 +81,7 @@ class SearchResults extends React.Component {
                       imageUrl={imageUrl}
                       description={p.description}
                       hasUniqueImage={hasUniqueImage}
+                      soilType={p.soilType}
                     />
                   </div>
                 );
@@ -91,4 +92,4 @@ class SearchResults extends React.Component {
   }
 }
 
-export default SearchResults;
+export default SearchResultsNav;
