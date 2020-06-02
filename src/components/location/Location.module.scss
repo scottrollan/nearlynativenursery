@@ -42,5 +42,8 @@
   background-color: var(--lightest-gray);
 }
 
-@media screen and (max-width: $breakpoint-small) {
+@media screen and (max-width: $breakpoint-medium) {
+  .parallaxLocation > div {
+    width: 88%;
+  }
 }

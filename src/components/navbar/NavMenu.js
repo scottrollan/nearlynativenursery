@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form } from 'react-bootstrap';
+import $ from 'jquery';
+import AlertNoPlants from '../popup/AlertNoPlants';
 import SearchResults from '../search/SearchResultsNav';
 import man from '../../media/N3man.png';
 import styles from './NavMenu.module.scss';
@@ -11,18 +13,19 @@ const NavMenu = () => {
   const [form, setForm] = useState([]);
 
   const closeResults = () => {
-    document.getElementById('resultsAreaNav').style.display = 'none';
+    $('#searchResultsNav').hide();
   };
 
   const searchByName = async (event) => {
+    $('#searchResultsSearch').hide();
     event.preventDefault();
-    const element1 = document.getElementById('resultsArea');
-    const element2 = document.getElementById('resultsAreaNav');
+    const element1 = $('#resultsArea');
+    const element2 = $('#resultsAreaNav');
     if (typeof element1 !== 'undefined' && element1 !== null) {
-      element1.style.display = 'none';
+      element1.hide();
     }
     if (typeof element2 !== 'undefined' && element2 !== null) {
-      element2.style.display = 'none';
+      element2.hide();
     }
     let inputText = searchValue.toLowerCase();
     let botanicalInput = inputText.replace(/^\w/, (c) => c.toUpperCase()); // capitalize first letter of first word only
@@ -45,23 +48,25 @@ const NavMenu = () => {
     let response = await client.fetch(query);
 
     if (response === undefined || response.length === 0) {
-      document.getElementById('spinner').style.display = 'none';
-      document.getElementById('searchCondButton').style.display = 'initial';
-      alert('...no plants match those specifications...');
-      document.getElementById('resultsAreaNav').style.display = 'none';
+      $('#alertNoPlants').css('display', 'flex');
+      $('#resultsAreaNav').hide();
       history.push('/search');
-      document.getElementById('searchArea').style.display = 'initial';
+      $('#searchArea').show();
+      $('#spinner').hide();
     } else {
       setForm([...response]);
       history.push('/search');
-      document.getElementById('resultsAreaNav').style.display = 'block';
-      document.getElementById('searchArea').style.display = 'none';
-      window.location.href = '#resultsAreaNav';
+      $('#searchArea').hide();
+      $('#searchResultsNav').show();
+      // $('#searchResultsSearch').hide();
+      window.location.href = '#searchResultsNav';
+      $('#spinner').hide();
     }
   };
 
   return (
     <Fragment>
+      <AlertNoPlants />
       <Navbar bg="light" expand="lg">
         <Navbar.Brand style={{ maxHeight: '50px' }}>
           <img src={man} alt="" style={{ maxHeight: '50px' }} />

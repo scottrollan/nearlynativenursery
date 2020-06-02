@@ -5,7 +5,8 @@ import pic from '../../media/N3nameTransparentWithMan2.png';
 
 const Contact = () => {
   return (
-    <Container>
+    <Container id="contact">
+      <h4>Contact Us</h4>
       <div className={styles.contactGrid}>
         <div className={styles.form}>
           <Form

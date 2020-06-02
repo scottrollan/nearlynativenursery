@@ -6,7 +6,7 @@ import name from '../../media/N3nameTransparent.png';
 
 const About = () => {
   return (
-    <Container className={styles.about}>
+    <Container className={styles.about} id="about">
       <img src={name} alt="" style={{ width: '100%' }} />
       <p>
         <strong>Nearly Native Nursery</strong> is a specialty nursery that

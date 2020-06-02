@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 
 const Shipping = () => {
   return (
-    <Container>
+    <Container id="shipping">
       <h2>Shipping</h2>
     </Container>
   );

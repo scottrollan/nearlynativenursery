@@ -5,7 +5,7 @@ import name from '../../media/N3nameTransparent.png';
 
 const Home = () => {
   return (
-    <div className={styles.parallaxHome} style={{ padding: '2vh 0' }}>
+    <div className={styles.parallaxHome} style={{ padding: '2vh 0' }} id="home">
       <div style={{ paddin: 0 }}>
         <img src={name} alt="" style={{ width: '100%' }} />
         <div className={styles.tabText} style={{ margin: '0 0' }}>

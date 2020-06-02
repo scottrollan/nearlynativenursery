@@ -6,7 +6,7 @@ import styles from './Location.module.scss';
 
 const Location = () => {
   return (
-    <div className={styles.parallaxLocation}>
+    <div className={styles.parallaxLocation} id="location">
       <Container>
         <img src={name} alt="" style={{ width: '80%' }} />
         <h3>776 McBride Road</h3>

@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+import $ from 'jquery';
 import SearchNameInput from './SearchNameInput';
-import SearchResults from './SearchResults';
+import SearchResultsSearch from './SearchResultsSearch';
 import SearchConditionsInput from './SearchConditionsInput';
+import AlertNoPlants from '../popup/AlertNoPlants';
 import styles from './SearchPageMain.module.scss';
 
 const SearchPageMain = () => {
   const [form, setForm] = useState([]);
-
+  const history = useHistory();
   const searchNow = async (filters) => {
+    $('#spinner').show();
+    $('#searchResultsNav').hide();
     setForm([]); //resets form for new search
 
     const sanityClient = require('@sanity/client');
@@ -23,21 +28,23 @@ const SearchPageMain = () => {
     let response = await client.fetch(query);
 
     if (response === undefined || response.length === 0) {
-      document.getElementById('spinner').style.display = 'none';
-      document.getElementById('searchCondButton').style.display =
-        'inline-block';
-      alert('...no plants match those specifications...');
-      document.getElementById('resultsArea').style.display = 'none';
+      $('#alertNoPlants').css('display', 'flex');
+      $('#alertNoPlants').delay(500).fadeOut(5000);
+      $('#resultsArea').hide();
+      $('#spinner').hide();
     } else {
       setForm([...response]);
-      document.getElementById('resultsArea').style.display = 'block';
-      document.getElementById('searchArea').style.display = 'none';
-      window.location.href = '#resultsArea';
+      $('#spinner').hide();
+      history.push('/search');
+      $('#searchResultsSearch').show();
+      $('#searchArea').hide();
+      $('#searchResultsNav').hide();
+      window.location.href = '#searchResultsSearch';
     }
   };
 
   return (
-    <Container fluid>
+    <Container fluid id="search">
       <section id="searchArea" className={styles.searchArea}>
         <div style={{ textAlign: 'center' }}>
           <h1>Search Botanical Name or Common Name: &nbsp;</h1>
@@ -52,7 +59,8 @@ const SearchPageMain = () => {
           </div>
         </div>
       </section>
-      <SearchResults buttonText="Return to Search" resultsArray={form} />
+      <SearchResultsSearch resultsArray={form} />
+      <AlertNoPlants />
     </Container>
   );
 };

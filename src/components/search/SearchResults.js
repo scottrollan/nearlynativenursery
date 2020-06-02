@@ -1,28 +1,27 @@
 import React from 'react';
-// import { Redirect } from 'react-router-dom';
+import $ from 'jquery';
 import { Card, Button } from 'react-bootstrap';
 import PlantModal from './PlantModal';
-import defaultImage from '../../media/no-image-available-icon.png';
 import styles from './SearchResults.module.scss';
 
 class SearchResults extends React.Component {
   showModal = (whichModal) => {
-    const modal = document.getElementById(whichModal);
-    modal.style.display = 'initial';
-    document.querySelector('html').style.overflowY = 'hidden';
+    $(`#${whichModal}`).show();
+    $('html').css('overflow-y', 'hidden');
   };
 
-  closeResults = () => {
-    document.getElementById('resultsArea').style.display = 'none';
-    document.getElementById('spinner').style.display = 'none';
-    document.getElementById('searchCondButton').style.display = 'initial';
-    document.getElementById('searchArea').style.display = 'initial';
+  closeResults = (div) => {
+    $(`#${div}`).hide();
+    $('#searchArea').show();
   };
 
   render() {
     return (
-      <div className={styles.resultsArea} id="resultsArea">
-        <Button secondary="true" onClick={() => this.closeResults()}>
+      <div className={styles.resultsArea} id={this.props.divId}>
+        <Button
+          secondary="true"
+          onClick={() => this.closeResults(this.props.divId)}
+        >
           {this.props.buttonText}
         </Button>
         <h3>
@@ -46,9 +45,8 @@ class SearchResults extends React.Component {
                   hasUniqueImage = true;
                   const imageArray = p.image.asset._ref.split('-'); //splits _ref into an array of length 4
                   imageUrl = `https://cdn.sanity.io/images/ogg4t6rs/production/${imageArray[1]}-${imageArray[2]}.${imageArray[3]}`; //gives image <image id>-<original size>.<extension>
-                } else {
-                  imageUrl = defaultImage;
                 }
+
                 return (
                   <div key={modalId}>
                     <Card className={styles.card}>
@@ -68,24 +66,37 @@ class SearchResults extends React.Component {
                           overflowY: 'hidden',
                         }}
                       >
-                        <Card.Img
-                          variant="top"
-                          src={imageUrl}
-                          style={
-                            hasUniqueImage
-                              ? {
-                                  width: '100%',
-                                  position: 'relative',
-                                  top: '50%',
-                                  transform: 'translateY(-50%)',
-                                }
-                              : {
-                                  height: '75px',
-                                  width: 'auto',
-                                  marginTop: '65px',
-                                }
-                          }
-                        />
+                        {hasUniqueImage ? (
+                          <Card.Img
+                            variant="top"
+                            src={imageUrl}
+                            style={{
+                              width: '100%',
+                              position: 'relative',
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                            }}
+                          />
+                        ) : (
+                          <div
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              color: 'var(--light-gray)',
+                            }}
+                          >
+                            <i
+                              class="fas fa-seedling"
+                              style={{
+                                fontSize: '10vh',
+                              }}
+                            ></i>
+                          </div>
+                        )}
                       </div>
                       <Card.Body className={styles.centerMiddle}>
                         <Card.Title>

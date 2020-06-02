@@ -84,8 +84,6 @@ class SearchConditionsInput extends React.Component {
   };
 
   searchByConditions = () => {
-    document.getElementById('spinner').style.display = 'inherit';
-    document.getElementById('searchCondButton').style.display = 'none';
     let filters = '';
     let form = [
       { name: 'acid', array: 'soilPH', value: this.state.soilPH_acid },
@@ -268,17 +266,14 @@ class SearchConditionsInput extends React.Component {
           </div>
         </div>
 
-        <div className={styles.spinnerDiv}>
-          <div className={styles.loader} id="spinner"></div>
-          <button
-            className={styles.searchCondButton}
-            id="searchCondButton"
-            onClick={(event) => this.searchByConditions(event)}
-            type="submit"
-          >
-            Find My Plants
-          </button>
-        </div>
+        <button
+          className={styles.searchCondButton}
+          id="searchCondButton"
+          onClick={(event) => this.searchByConditions(event)}
+          type="submit"
+        >
+          Find My Plants
+        </button>
       </div>
     );
   }

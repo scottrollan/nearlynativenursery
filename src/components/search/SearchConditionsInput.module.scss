@@ -17,12 +17,7 @@ hr {
   font-size: calc(12px + 0.6vw);
   vertical-align: top;
 }
-.spinnerDiv {
-  min-height: 105px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+
 .searchCondButton {
   width: 90%;
   max-width: 300px;
@@ -41,60 +36,6 @@ hr {
   color: white;
   background-color: #1d271b;
 }
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  z-index: 990;
-  background-color: var(--overlay);
-}
-
-// .showSpinner {
-//   display: inherit;
-// }
-
-.loader:before,
-.loader:after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 999;
-  border-radius: 50%;
-  border-style: solid;
-  border-top-color: var(--nnn-orange);
-  border-right-color: var(--nnn-green);
-  border-bottom-color: var(--normal-font-color);
-  border-left-color: #dac646;
-
-  content: '';
-
-  transform: translate(-50%, -50%);
-  animation: rotate 1.5s infinite ease-in-out;
-}
-
-.loader:before {
-  border-width: 10px;
-}
-
-.loader:after {
-  width: 60px;
-  height: 60px;
-  border-width: 10px;
-  animation-direction: reverse;
-}
-
-@keyframes rotate {
-  0% {
-    transform: translate(-50%, -50%) rotate(0);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
 @media screen and (max-width: 780px) {
   #checkboxDiv {
     width: 94%;
