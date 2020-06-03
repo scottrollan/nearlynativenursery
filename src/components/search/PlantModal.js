@@ -51,37 +51,50 @@ const PlantModal = (props) => {
             <Col className={styles.col} xs={6} md={4}>
               <div className={styles.condHeader}>Soil Type</div>
               {props.soilType.map((soil) => (
-                <div className={styles.condListItem}>{soil}</div>
+                <div className={styles.condListItem} key={soil}>
+                  {soil}
+                </div>
               ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
               <div className={styles.condHeader}>Soil pH</div>
               {props.pH.map((pH) => (
-                <div className={styles.condListItem}>{pH}</div>
+                <div className={styles.condListItem} key={pH}>
+                  {pH}
+                </div>
               ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
               <div className={styles.condHeader}>Water Level</div>
               {props.water.map((w) => (
-                <div className={styles.condListItem}>{w}</div>
+                <div className={styles.condListItem} key={w}>
+                  {w}
+                </div>
               ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
               <div className={styles.condHeader}>Sun Exposure</div>
               {props.sunLevel.map((sun) => (
-                <div className={styles.condListItem}>{sun}</div>
+                <div className={styles.condListItem} key={sun}>
+                  {sun}
+                </div>
               ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
               <div className={styles.condHeader}>Foliage</div>
               {props.foliage.map((f) => (
-                <div className={styles.condListItem}>{f}</div>
+                <div className={styles.condListItem} key={f}>
+                  {f}
+                </div>
               ))}
             </Col>
             <Col className={styles.col} xs={6} md={4}>
               <div className={styles.condHeader}>Unit Size/Price</div>
               {props.unit.map((u) => (
-                <div className={[`${styles.condListItem} ${styles.unitDiv}`]}>
+                <div
+                  className={[`${styles.condListItem} ${styles.unitDiv}`]}
+                  key={u.containerSize}
+                >
                   <span>{u.containerSize} </span>
 
                   {u.price !== undefined && u.price !== 0 ? (

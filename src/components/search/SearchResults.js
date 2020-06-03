@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import { Card, Button } from 'react-bootstrap';
+import TopButton from '../scrollTop/ScrollTop';
 import PlantModal from './PlantModal';
 import styles from './SearchResults.module.scss';
 
@@ -90,7 +91,7 @@ class SearchResults extends React.Component {
                             }}
                           >
                             <i
-                              class="fas fa-seedling"
+                              className="fas fa-seedling"
                               style={{
                                 fontSize: '10vh',
                               }}
@@ -128,6 +129,7 @@ class SearchResults extends React.Component {
                 );
               })}
         </div>
+        <TopButton />
       </div>
     );
   }
