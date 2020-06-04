@@ -1,11 +1,19 @@
 import React from 'react';
 import { Container, Form, Button, Col } from 'react-bootstrap';
+import AlertMessageSent from '../popup/AlertMessageSent';
+import $ from 'jquery';
 import styles from './Contact.module.scss';
 import pic from '../../media/N3nameTransparentWithMan2.png';
 
 const Contact = () => {
+  const messageSent = () => {
+    $('#alertMessageSent').css('display', 'flex');
+    $('#alertMessageSent').delay(1500).fadeOut(1000);
+  };
+
   return (
     <Container id="contact">
+      <AlertMessageSent />
       <h4>Contact Us</h4>
       <div className={styles.contactGrid}>
         <div className={styles.form}>
@@ -18,8 +26,8 @@ const Contact = () => {
             }}
             action="/"
           >
+            <input type="hidden" name="form-name" value="contact" />
             <Form.Row>
-              <input type="hidden" name="form-name" value="contact" />
               <Form.Group as={Col} controlId="formGridName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
@@ -55,7 +63,11 @@ const Contact = () => {
               </Form.Group>
             </Form.Row>
 
-            <Button variant="primary" type="submit">
+            <Button
+              className={styles.contactButton}
+              type="submit"
+              onCLick={messageSent}
+            >
               Submit
             </Button>
           </Form>

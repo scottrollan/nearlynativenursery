@@ -1,5 +1,6 @@
 @import '../../styles/custom-properties.css';
 @import '../../styles/custom-media.scss';
+@import '../../styles/_Buttons';
 
 .contactGrid {
   display: grid;
@@ -28,6 +29,10 @@
   visibility: hidden;
   width: 100%;
 }
+.contactButton {
+  @include autoButton;
+}
+
 @media screen and (max-width: $breakpoint-medium) {
   .contactGrid {
     grid-template-columns: 200px 4vw auto;

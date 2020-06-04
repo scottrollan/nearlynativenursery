@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './SearchConditionsInput.module.scss';
+import { Button } from 'react-bootstrap';
 
 class SearchConditionsInput extends React.Component {
   state = {
@@ -271,14 +272,14 @@ class SearchConditionsInput extends React.Component {
           </div>
         </div>
 
-        <button
+        <Button
           className={styles.searchCondButton}
           id="searchCondButton"
           onClick={(event) => this.searchByConditions(event)}
           type="submit"
         >
           Find My Plants
-        </button>
+        </Button>
       </div>
     );
   }

@@ -59,7 +59,6 @@ const NavMenu = () => {
       history.push('/search');
       $('#searchArea').hide();
       $('#searchResultsNav').show();
-      // $('#searchResultsSearch').hide();
       window.location.href = '#searchResultsNav';
       $('#spinner').hide();
     }
@@ -72,7 +71,10 @@ const NavMenu = () => {
         <Navbar.Brand style={{ maxHeight: '50px' }}>
           <img src={man} alt="" style={{ maxHeight: '50px' }} />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          style={{ backgroundColor: 'transparent !important' }}
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Link

@@ -1,7 +1,7 @@
 @import '../../styles/custom-media.scss';
-@import '~slick-carousel/slick/slick-theme.css';
-@import '~slick-carousel/slick/slick.css';
+@import '../../styles/_Buttons';
 
+.resultsArea,
 .cardGroup,
 .card,
 .modal {
@@ -9,6 +9,9 @@
 }
 .resultsArea {
   display: none;
+}
+.resultsCloseButton {
+  @include autoButton;
 }
 
 .cardGroup {

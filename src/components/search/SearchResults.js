@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import TopButton from '../scrollTop/ScrollTop';
 import PlantModal from '../plantModal/PlantModal';
 import styles from './SearchResults.module.scss';
@@ -19,13 +19,13 @@ class SearchResults extends React.Component {
   render() {
     return (
       <div className={styles.resultsArea} id={this.props.divId}>
-        <Button
-          secondary="true"
+        <button
+          className={styles.resultsCloseButton}
           onClick={() => this.closeResults(this.props.divId)}
           style={{ margin: '1rem' }}
         >
           {this.props.buttonText}
-        </Button>
+        </button>
         <h3>
           We found {this.props.resultsArray.length} items that match that
           criteria:
@@ -109,18 +109,10 @@ class SearchResults extends React.Component {
                           </div>
                         )}
                       </div>
-                      {/* <Card.Body className={styles.centerMiddle}>
-                        <Card.Title>
-                          {p.botanicalName} {p.variety}
-                        </Card.Title>
-                      </Card.Body> */}
                       <Card.Footer className={styles.cardFooter}>
                         <Card.Title>
                           {p.botanicalName} {p.variety}
                         </Card.Title>
-                        {/* <Button onClick={() => this.showModal(modalId)}>
-                          See Details
-                        </Button> */}
                       </Card.Footer>
                     </Card>
                     <PlantModal

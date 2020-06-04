@@ -12,6 +12,7 @@ import styles from './SearchPageMain.module.scss';
 const SearchPageMain = () => {
   const [form, setForm] = useState([]);
   const history = useHistory();
+
   const searchNow = async (query) => {
     $('#spinner').show();
     setForm([]); //resets form for new search
@@ -43,12 +44,45 @@ const SearchPageMain = () => {
     }
   };
 
+  const searchNameNow = async (query) => {
+    $('#spinner').show();
+    setForm([]); //resets form for new search
+
+    const sanityClient = require('@sanity/client');
+    const client = sanityClient({
+      projectId: 'ogg4t6rs',
+      dataset: 'production',
+      token: '',
+      useCdn: true, // `false` if you want to ensure fresh data
+    });
+
+    let response = await client.fetch(query);
+
+    console.log(response);
+
+    if (response === undefined || response.length === 0) {
+      $('#alertNoPlants').css('display', 'flex');
+      $('#alertNoPlants').delay(1500).fadeOut(1000);
+      $('#resultsArea').hide();
+      $('#spinner').hide();
+    } else {
+      const tempForm = response.exactMatches.concat(response.partialMatches);
+      setForm([...tempForm]);
+      $('#spinner').hide();
+      history.push('/search');
+      $('#searchResultsSearch').show();
+      $('#searchArea').hide();
+      $('#searchResultsNav').hide();
+      window.location.href = '#searchResultsSearch';
+    }
+  };
+
   // $('#searchResultsNav').hide();
 
   return (
     <Container fluid id="search">
       <section id="searchArea" className={styles.searchArea}>
-        <SearchNameInput searchByName={(query) => searchNow(query)} />
+        <SearchNameInput searchByName={(query) => searchNameNow(query)} />
 
         <hr />
 

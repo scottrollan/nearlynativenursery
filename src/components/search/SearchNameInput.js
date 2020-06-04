@@ -13,7 +13,7 @@ const SearchNameInput = (props) => {
       .split(' ')
       .map((i) => i.replace(/^\w/, (c) => c.toUpperCase()))
       .join(' ');
-    const query = `*[botanicalName match "${botanicalInput}" || commonName match "${commonInput}" || botanicalName == "${botanicalInput}" || commonName == "${commonInput}"] | order(match)`;
+    const query = `{"exactMatches": *[botanicalName == "${botanicalInput}" || commonName == "${commonInput}"], "partialMatches": *[botanicalName != "${botanicalInput}" && commonName != "${commonInput}" && (botanicalName match "${botanicalInput}" || commonName match "${commonInput}")]}`;
     // const query = `*[description match "${botanicalInput}" ]`; this would be the code for a keyword search
 
     props.searchByName(query);

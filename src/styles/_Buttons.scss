@@ -1,0 +1,38 @@
+@mixin searchButton {
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  padding: 15px 0;
+  margin: 0 auto;
+  border-radius: 2vw;
+  box-sizing: border-box;
+  color: white;
+  background-color: var(--nnn-green) !important;
+  cursor: pointer;
+  font-size: var(--font-title3-size);
+  line-height: var(--font-title3-line-height);
+  display: inherit;
+  &:hover {
+    transform: translateY(2px);
+    transform: scale(0.95);
+    transition: translateY 0.2s ease-in-out;
+  }
+}
+
+@mixin autoButton {
+  max-width: 100%;
+  text-align: center;
+  padding: 8px 12px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+  background-color: var(--nnn-green) !important;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  &:hover {
+    transform: translateY(2px);
+    transform: scale(0.95);
+    transition: translateY 0.2s ease-in-out;
+  }
+}

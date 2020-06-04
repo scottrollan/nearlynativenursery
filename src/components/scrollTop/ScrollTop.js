@@ -24,9 +24,8 @@ const ScrollTop = () => {
     <Button
       onClick={scrollTop}
       className={styles.scrollTop}
+      variant="greenButton"
       style={{
-        backgroundColor: 'var(--nnn-green)',
-        border: '1px solid var(--nnn-green)',
         display: showScroll ? 'flex' : 'none',
       }}
     >

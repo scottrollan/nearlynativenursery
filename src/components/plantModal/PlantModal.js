@@ -18,12 +18,7 @@ const PlantModal = (props) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>
-          <div
-            className={styles.closeButton}
-            style={{ alignSelf: 'flex-end', transform: 'translate(20px 50px)' }}
-            onClick={() => hideModal(props.id)}
-          ></div>
-          <h3 style={{ alignSelf: 'middle' }}>{props.commonName}</h3>
+          <h3 style={{ alignSelf: 'center' }}>{props.commonName}</h3>
 
           <h5>
             {props.botanicalName} {props.variety}
@@ -43,6 +38,7 @@ const PlantModal = (props) => {
                 )
               }
               rel="noopener noreferrer"
+              variant="greenButton"
               style={{
                 width: 'calc(100%-2rem)',
                 margin: '1rem',
@@ -117,8 +113,17 @@ const PlantModal = (props) => {
           </Row>
         </Container>
         <div className={styles.modalFooter}>
-          <Button onClick={() => hideModal(props.id)}>close</Button>
+          <Button
+            className={styles.closeButton}
+            onClick={() => hideModal(props.id)}
+          >
+            close
+          </Button>
         </div>
+        <span
+          className={styles.closeX}
+          onClick={() => hideModal(props.id)}
+        ></span>
       </div>
     </div>
   );
