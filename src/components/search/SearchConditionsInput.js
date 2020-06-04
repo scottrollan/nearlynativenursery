@@ -161,12 +161,14 @@ class SearchConditionsInput extends React.Component {
       return uncompiledArray.push(indexStr);
     });
     filters = uncompiledArray.join(' && '); //turns array into string with conditions joined by "&&"
-    this.props.searchByConditions(filters);
+    const query = `*[${filters}]`;
+    this.props.searchByConditions(query);
   };
 
   render() {
     return (
       <div className={styles.wrapper}>
+        <h3>...or by Growing Conditions</h3>
         <div className={styles.checkboxDiv}>
           {this.state.conditionsOptions.map((c) => (
             <div className={styles.adaptiveCol} key={c.title}>
@@ -175,6 +177,7 @@ class SearchConditionsInput extends React.Component {
                 <input
                   type="checkbox"
                   name={c.choice1}
+                  id={c.choice1}
                   value={`this.state.${c.choice1}`}
                   onChange={this.handleCheck}
                 ></input>
@@ -184,6 +187,7 @@ class SearchConditionsInput extends React.Component {
                 <input
                   type="checkbox"
                   name={c.choice2}
+                  id={c.choice2}
                   value={`this.state.${c.choice2}`}
                   onChange={this.handleCheck}
                 ></input>
@@ -193,6 +197,7 @@ class SearchConditionsInput extends React.Component {
                 <input
                   type="checkbox"
                   name={c.choice3}
+                  id={c.choice3}
                   value={`this.state.${c.choice3}`}
                   onChange={this.handleCheck}
                 ></input>

@@ -22,12 +22,15 @@ const ScrollTop = () => {
 
   return (
     <Button
-      variant="danger"
       onClick={scrollTop}
       className={styles.scrollTop}
-      style={{ display: showScroll ? 'flex' : 'none' }}
+      style={{
+        backgroundColor: 'var(--nnn-green)',
+        border: '1px solid var(--nnn-green)',
+        display: showScroll ? 'flex' : 'none',
+      }}
     >
-      <i className="fas fa-angle-up"></i>Back To Top
+      <i className="fas fa-angle-up"></i> Top
     </Button>
   );
 };

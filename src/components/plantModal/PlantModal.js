@@ -18,7 +18,13 @@ const PlantModal = (props) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>
-          <h3>{props.commonName}</h3>
+          <div
+            className={styles.closeButton}
+            style={{ alignSelf: 'flex-end', transform: 'translate(20px 50px)' }}
+            onClick={() => hideModal(props.id)}
+          ></div>
+          <h3 style={{ alignSelf: 'middle' }}>{props.commonName}</h3>
+
           <h5>
             {props.botanicalName} {props.variety}
           </h5>
@@ -30,7 +36,6 @@ const PlantModal = (props) => {
             </a>
           ) : (
             <Button
-              secondary="true"
               onClick={() =>
                 window.open(
                   `http://www.google.com/search?q=${props.botanicalName} ${props.variety}&tbm=isch`,
@@ -38,14 +43,20 @@ const PlantModal = (props) => {
                 )
               }
               rel="noopener noreferrer"
-              style={{ width: 'calc(100%-2rem)', margin: '1rem' }}
+              style={{
+                width: 'calc(100%-2rem)',
+                margin: '1rem',
+              }}
             >
               Search Google Images for {props.commonName}
             </Button>
           )}
         </div>
 
-        <p className={styles.modalDescr}>{props.description}</p>
+        <p className={styles.modalDescr}>
+          {props.description} Thrives from zone {props.lowZone} to zone{' '}
+          {props.highZone}.
+        </p>
         <Container>
           <Row className={'show-grid'}>
             <Col className={styles.col} xs={6} md={4}>

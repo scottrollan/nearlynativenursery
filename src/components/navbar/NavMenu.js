@@ -49,6 +49,7 @@ const NavMenu = () => {
 
     if (response === undefined || response.length === 0) {
       $('#alertNoPlants').css('display', 'flex');
+      $('#alertNoPlants').delay(1500).fadeOut(1000);
       $('#resultsAreaNav').hide();
       history.push('/search');
       $('#searchArea').show();

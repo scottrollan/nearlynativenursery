@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { Card, Button } from 'react-bootstrap';
 import TopButton from '../scrollTop/ScrollTop';
-import PlantModal from './PlantModal';
+import PlantModal from '../plantModal/PlantModal';
 import styles from './SearchResults.module.scss';
 
 class SearchResults extends React.Component {
@@ -22,6 +22,7 @@ class SearchResults extends React.Component {
         <Button
           secondary="true"
           onClick={() => this.closeResults(this.props.divId)}
+          style={{ margin: '1rem' }}
         >
           {this.props.buttonText}
         </Button>
@@ -39,6 +40,12 @@ class SearchResults extends React.Component {
                 let imageUrl = '';
                 let hasUniqueImage = false;
                 if (
+                  p.image === undefined ||
+                  p.image.asset === undefined ||
+                  p.image.asset._ref === undefined
+                ) {
+                  return null;
+                } else if (
                   p.image.asset._ref !== undefined &&
                   p.image.asset._ref !==
                     'image-a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188-png'
@@ -50,12 +57,15 @@ class SearchResults extends React.Component {
 
                 return (
                   <div key={modalId}>
-                    <Card className={styles.card}>
+                    <Card
+                      className={styles.card}
+                      onClick={() => this.showModal(modalId)}
+                    >
                       <Card.Header
                         className={styles.centerMiddle}
                         as="h3"
                         style={
-                          p.commonName.length > 25 ? { fontSize: '20px' } : null
+                          p.commonName.length > 26 ? { fontSize: '20px' } : null
                         }
                       >
                         {p.commonName}
@@ -99,15 +109,18 @@ class SearchResults extends React.Component {
                           </div>
                         )}
                       </div>
-                      <Card.Body className={styles.centerMiddle}>
+                      {/* <Card.Body className={styles.centerMiddle}>
                         <Card.Title>
                           {p.botanicalName} {p.variety}
                         </Card.Title>
-                      </Card.Body>
-                      <Card.Footer>
-                        <Button onClick={() => this.showModal(modalId)}>
+                      </Card.Body> */}
+                      <Card.Footer className={styles.cardFooter}>
+                        <Card.Title>
+                          {p.botanicalName} {p.variety}
+                        </Card.Title>
+                        {/* <Button onClick={() => this.showModal(modalId)}>
                           See Details
-                        </Button>
+                        </Button> */}
                       </Card.Footer>
                     </Card>
                     <PlantModal
@@ -117,6 +130,8 @@ class SearchResults extends React.Component {
                       variety={p.variety}
                       imageUrl={imageUrl}
                       description={p.description}
+                      lowZone={p.lowZone}
+                      highZone={p.highZone}
                       hasUniqueImage={hasUniqueImage}
                       soilType={p.soilType}
                       pH={p.soilPH}

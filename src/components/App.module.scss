@@ -21,6 +21,10 @@ html {
 .active {
   background-color: var(--light-gray);
 }
+Button {
+  background-color: var(--nnn-green) !important;
+  border: 1px solid var(--nnn-green) !important;
+}
 .push {
   height: $footer-height;
 }

@@ -2,7 +2,9 @@
 @import '~slick-carousel/slick/slick-theme.css';
 @import '~slick-carousel/slick/slick.css';
 
-* {
+.cardGroup,
+.card,
+.modal {
   text-align: center;
 }
 .resultsArea {
@@ -33,6 +35,13 @@
 }
 .descr {
   overflow-y: hidden;
+}
+
+.cardFooter {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {

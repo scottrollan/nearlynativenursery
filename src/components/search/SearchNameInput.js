@@ -13,25 +13,30 @@ const SearchNameInput = (props) => {
       .split(' ')
       .map((i) => i.replace(/^\w/, (c) => c.toUpperCase()))
       .join(' ');
-    const filters = `botanicalName match "${botanicalInput}" || commonName match "${commonInput}" || botanicalName == "${botanicalInput}" || commonName == "${commonInput}"`;
-    props.searchByName(filters);
+    const query = `*[botanicalName match "${botanicalInput}" || commonName match "${commonInput}" || botanicalName == "${botanicalInput}" || commonName == "${commonInput}"] | order(match)`;
+    // const query = `*[description match "${botanicalInput}" ]`; this would be the code for a keyword search
+
+    props.searchByName(query);
   };
 
   return (
-    <Form onSubmit={(event) => searchByName(event)} className="nav-link">
-      <input
-        placeholder="Search"
-        className={styles.searchInput}
-        type="text"
-        name="searchName"
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
-      />
+    <div style={{ textAlign: 'center' }}>
+      <h3>Search Botanical Name or Common Name: &nbsp;</h3>
+      <Form onSubmit={(event) => searchByName(event)} className="nav-link">
+        <input
+          placeholder="Search"
+          className={styles.searchInput}
+          type="text"
+          name="searchName"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
 
-      <Button className={styles.nameButton} type="submit">
-        Search By Name
-      </Button>
-    </Form>
+        <Button className={styles.nameButton} type="submit">
+          Search By Name
+        </Button>
+      </Form>
+    </div>
   );
 };
 
