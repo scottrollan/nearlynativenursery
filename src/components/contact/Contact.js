@@ -24,7 +24,7 @@ const Contact = () => {
               width: '100%',
               padding: '0 calc(50% - 320px',
             }}
-            action="/"
+            // action="/"
           >
             <input type="hidden" name="form-name" value="contact" />
             <Form.Row>
@@ -66,7 +66,7 @@ const Contact = () => {
             <Button
               className={styles.contactButton}
               type="submit"
-              onCLick={messageSent}
+              onClick={messageSent}
             >
               Submit
             </Button>
