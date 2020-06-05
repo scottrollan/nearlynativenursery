@@ -5,6 +5,8 @@ import $ from 'jquery';
 import styles from './Contact.module.scss';
 import pic from '../../media/N3nameTransparentWithMan2.png';
 
+import OtherContact from './OtherContact';
+
 const Contact = () => {
   $('#contactForm').submit((event) => {
     event.preventDefault();
@@ -29,7 +31,7 @@ const Contact = () => {
             }}
             // action="/"
           >
-            <input type="hidden" name="form-name" value="contact" />
+            {/* <input type="hidden" name="form-name" value="contact" /> */}
             <Form.Row>
               <Form.Group as={Col} controlId="formGridName">
                 <Form.Label>Name</Form.Label>
@@ -83,6 +85,8 @@ const Contact = () => {
           <p>Fax: 770-460-7050</p>
         </div>
       </div>
+
+      <OtherContact />
     </Container>
   );
 };
