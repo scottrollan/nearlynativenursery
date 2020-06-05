@@ -6,10 +6,12 @@ import styles from './Contact.module.scss';
 import pic from '../../media/N3nameTransparentWithMan2.png';
 
 const Contact = () => {
-  const messageSent = () => {
+  $('#contactForm').submit((event) => {
+    event.preventDefault();
     $('#alertMessageSent').css('display', 'flex');
     $('#alertMessageSent').delay(1500).fadeOut(1000);
-  };
+    $('#contactForm').delay(2500).submit();
+  });
 
   return (
     <Container id="contact">
@@ -18,6 +20,7 @@ const Contact = () => {
       <div className={styles.contactGrid}>
         <div className={styles.form}>
           <Form
+            id="contactForm"
             name="contact"
             method="post"
             style={{
@@ -63,11 +66,7 @@ const Contact = () => {
               </Form.Group>
             </Form.Row>
 
-            <Button
-              className={styles.contactButton}
-              type="submit"
-              onClick={messageSent}
-            >
+            <Button className={styles.contactButton} type="submit">
               Submit
             </Button>
           </Form>

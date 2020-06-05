@@ -5,7 +5,8 @@ const AlertMessageSent = () => {
   return (
     <div id="alertMessageSent" className={styles.alertDiv}>
       <div className={[`${styles.alertMessageSent} ${styles.fadeIn}`]}>
-        <i className="fas fa-undo-alt"></i> Sorry. No plants meet that criteria.
+        <i className="far fa-paper-plane"></i> Your message has been sent.
+        <div>Thank you!</div>
       </div>
     </div>
   );
