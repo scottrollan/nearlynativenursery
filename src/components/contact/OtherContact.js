@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import AlertMessageSent from '../popup/AlertMessageSent';
+import $ from 'jquery';
 
 function OtherContact() {
   const [name, setName] = useState('');
@@ -22,8 +24,15 @@ function OtherContact() {
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
       body: encode(data),
     })
-      .then(() => setStatus('Form Submission Successful!!'))
-      .catch((error) => setStatus('Form Submission Failed!'));
+      .then(() => {
+        setStatus('Form Submission Successful!!');
+        $('#alertMessageSent').css('display', 'flex');
+        $('#alertMessageSent').delay(1500).fadeOut(1000);
+      })
+      .catch((error) => {
+        setStatus('Form Submission Failed!');
+        console.log(error);
+      });
 
     e.preventDefault();
   };
@@ -43,6 +52,7 @@ function OtherContact() {
 
   return (
     <div className="OtherContact">
+      <AlertMessageSent />
       <form onSubmit={handleSubmit} action="/thank-you/">
         <input type="hidden" name="form-name" value="contact" />
 
