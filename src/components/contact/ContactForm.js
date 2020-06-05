@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
 import styles from './Contact.module.scss';
-
 import AlertMessageSent from '../popup/AlertMessageSent';
 import $ from 'jquery';
 
@@ -31,16 +30,15 @@ function ContactForm() {
         setStatus('Form Submission Successful!!');
         $('#alertMessageSent').css('display', 'flex');
         $('#alertMessageSent').delay(1500).fadeOut(1000);
-        // setName('');
-        // setEmail('');
-        // setMessage('');
-        $('#contactForm').trigger('reset');
+        setName('');
+        setEmail('');
+        setMessage('');
+        $('#contactForm')[0].reset();
       })
       .catch((error) => {
         setStatus('Form Submission Failed!');
         console.log(error);
         alert(status);
-        $('#contactForm').trigger('reset');
       });
 
     e.preventDefault();
