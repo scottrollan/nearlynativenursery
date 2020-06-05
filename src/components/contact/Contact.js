@@ -1,77 +1,20 @@
 import React from 'react';
-import { Container, Form, Button, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import AlertMessageSent from '../popup/AlertMessageSent';
-import $ from 'jquery';
 import styles from './Contact.module.scss';
 import pic from '../../media/N3nameTransparentWithMan2.png';
 
-import OtherContact from './OtherContact';
+import ContactForm from './ContactForm';
 
 const Contact = () => {
-  $('#contactForm').submit((event) => {
-    event.preventDefault();
-    $('#alertMessageSent').css('display', 'flex');
-    $('#alertMessageSent').delay(1500).fadeOut(1000);
-    $('#contactForm').delay(2500).submit();
-  });
-
   return (
     <Container id="contact">
       <AlertMessageSent />
       <h4>Contact Us</h4>
       <div className={styles.contactGrid}>
         <div className={styles.form}>
-          <Form
-            id="contactForm"
-            name="contact"
-            method="post"
-            style={{
-              width: '100%',
-              padding: '0 calc(50% - 320px',
-            }}
-            // action="/"
-          >
-            {/* <input type="hidden" name="form-name" value="contact" /> */}
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter name"
-                  name="name"
-                  required
-                />
-              </Form.Group>
+          <ContactForm />
 
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  name="email"
-                  required
-                />
-              </Form.Group>
-            </Form.Row>
-
-            <Form.Row>
-              <Form.Group controlId="Textarea" style={{ width: '100%' }}>
-                <Form.Label>Message</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows="5"
-                  name="message"
-                  type="textarea"
-                  placeholder="Your message..."
-                  required
-                />
-              </Form.Group>
-            </Form.Row>
-
-            <Button className={styles.contactButton} type="submit">
-              Submit
-            </Button>
-          </Form>
           <hr className={styles.hr} />
         </div>
         <div className={styles.pic}>
@@ -85,8 +28,6 @@ const Contact = () => {
           <p>Fax: 770-460-7050</p>
         </div>
       </div>
-
-      <OtherContact />
     </Container>
   );
 };

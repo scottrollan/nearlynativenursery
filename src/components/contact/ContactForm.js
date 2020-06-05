@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { Form, Button, Col } from 'react-bootstrap';
+import styles from './Contact.module.scss';
+
 import AlertMessageSent from '../popup/AlertMessageSent';
 import $ from 'jquery';
 
-function OtherContact() {
+function ContactForm() {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
@@ -28,10 +31,16 @@ function OtherContact() {
         setStatus('Form Submission Successful!!');
         $('#alertMessageSent').css('display', 'flex');
         $('#alertMessageSent').delay(1500).fadeOut(1000);
+        // setName('');
+        // setEmail('');
+        // setMessage('');
+        $('#contactForm').trigger('reset');
       })
       .catch((error) => {
         setStatus('Form Submission Failed!');
         console.log(error);
+        alert(status);
+        $('#contactForm').trigger('reset');
       });
 
     e.preventDefault();
@@ -51,46 +60,65 @@ function OtherContact() {
   };
 
   return (
-    <div className="OtherContact">
+    <Form
+      onSubmit={handleSubmit}
+      action="/thank-you/"
+      style={{
+        width: '100%',
+        padding: '0 calc(50% - 320px',
+      }}
+      id="contactForm"
+    >
+      <input type="hidden" name="form-name" value="contact" />
       <AlertMessageSent />
-      <form onSubmit={handleSubmit} action="/thank-you/">
-        <input type="hidden" name="form-name" value="contact" />
 
-        <p>
-          <label>
+      <Form.Row>
+        <Form.Group as={Col} controlId="formGridName">
+          <Form.Label>
             Your Name:{' '}
-            <input
+            <Form.Control
               type="text"
               name="name"
               value={name}
               onChange={handleChange}
+              placeholder="Enter name"
+              required
             />
-          </label>
-        </p>
-        <p>
-          <label>
+          </Form.Label>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>
             Your Email:{' '}
-            <input
+            <Form.Control
               type="email"
               name="email"
               value={email}
               onChange={handleChange}
+              placeholder="Enter email"
+              required
             />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message:{' '}
-            <textarea name="message" value={message} onChange={handleChange} />
-          </label>
-        </p>
-
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-      <h3>{status}</h3>
-    </div>
+          </Form.Label>
+        </Form.Group>
+      </Form.Row>
+      <Form.Group controlId="Textarea" style={{ width: '100%' }}>
+        <Form.Label style={{ width: '100%' }}>
+          Message:{' '}
+          <Form.Control
+            name="message"
+            value={message}
+            onChange={handleChange}
+            as="textarea"
+            rows="5"
+            type="textarea"
+            placeholder="Your message..."
+            required
+          />
+        </Form.Label>
+      </Form.Group>
+      <Button className={styles.contactButton} type="submit">
+        Send
+      </Button>
+    </Form>
   );
 }
-export default OtherContact;
+export default ContactForm;
