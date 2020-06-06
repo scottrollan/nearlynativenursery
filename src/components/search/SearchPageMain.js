@@ -58,17 +58,15 @@ const SearchPageMain = () => {
 
     let response = await client.fetch(query);
 
-    console.log(response);
-
     if (response === undefined || response.length === 0) {
-      $('#alertNoPlants').css('display', 'flex');
+      $('#alertNoPlants').show();
       $('#alertNoPlants').delay(1500).fadeOut(1000);
       $('#resultsArea').hide();
-      $('#spinner').hide();
+      $('#spinner').hidden();
     } else {
       const tempForm = response.exactMatches.concat(response.partialMatches);
       setForm([...tempForm]);
-      $('#spinner').hide();
+      $('#spinner').hidden();
       history.push('/search');
       $('#searchResultsSearch').show();
       $('#searchArea').hide();

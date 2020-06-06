@@ -8,6 +8,20 @@ const PlantModal = (props) => {
     document.querySelector('html').style.overflowY = 'auto';
   };
 
+  const googleSearch = (botanicalName, variety) => {
+    if (variety !== undefined) {
+      window.open(
+        `http://www.google.com/search?q=${botanicalName} ${variety}&tbm=isch`,
+        '_blank'
+      );
+    } else {
+      window.open(
+        `http://www.google.com/search?q=${botanicalName}&tbm=isch`,
+        '_blank'
+      );
+    }
+  };
+
   return (
     <div id={props.id} className={[`${styles.modal}`]}>
       <div className={styles.overlay} onClick={() => hideModal(props.id)}></div>
@@ -31,14 +45,9 @@ const PlantModal = (props) => {
             </a>
           ) : (
             <Button
-              onClick={() =>
-                window.open(
-                  `http://www.google.com/search?q=${props.botanicalName} ${props.variety}&tbm=isch`,
-                  '_blank'
-                )
-              }
+              onClick={() => googleSearch(props.botanicalName, props.variety)}
               rel="noopener noreferrer"
-              variant="greenButton"
+              className={styles.searchGoogleButton}
               style={{
                 width: 'calc(100%-2rem)',
                 margin: '1rem',

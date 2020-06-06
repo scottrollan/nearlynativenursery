@@ -1,6 +1,8 @@
 @import '../../styles/custom-media.scss';
+@import '../../styles/Buttons';
 
 .scrollTop {
+  @include autoButton;
   position: fixed;
   width: auto;
   bottom: $footer-height;
