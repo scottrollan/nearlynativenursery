@@ -1,5 +1,6 @@
 @import '../../styles/custom-media.scss';
 @import '../../styles/_Padding';
+@import '../../styles/_Buttons';
 
 .shipping {
   text-align: center;
@@ -14,4 +15,36 @@
 .outlined {
   border: 1px solid var(--normal-font-color);
   box-sizing: border-box;
+  text-align: center;
+}
+.responsiveFont {
+  font-size: medium;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+}
+.h6Font {
+  margin-bottom: 0 !important;
+}
+.showExample {
+  @include autoButton;
+}
+.math {
+  padding: 1vh 0;
+}
+.math:nth-child(odd) {
+  background: var(--lightest-gray);
+}
+@media screen and (max-width: $breakpoint-medium) {
+  .responsiveFont {
+    font-size: 2.5vw;
+  }
 }
