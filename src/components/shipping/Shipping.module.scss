@@ -1,0 +1,17 @@
+@import '../../styles/custom-media.scss';
+@import '../../styles/_Padding';
+
+.shipping {
+  text-align: center;
+  @include mediumWidthPadding;
+}
+
+.mapImg {
+  width: 94%;
+  max-width: $breakpoint-medium;
+}
+
+.outlined {
+  border: 1px solid var(--normal-font-color);
+  box-sizing: border-box;
+}

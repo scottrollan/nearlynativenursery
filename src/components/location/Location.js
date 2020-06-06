@@ -19,7 +19,7 @@ const Location = () => {
           {' '}
           <p className={styles.mapLink}>
             <i className="fas fa-map-marker-alt" />
-            See us on the map...
+            &nbsp; See us on the map...
           </p>
         </a>
       </Container>
