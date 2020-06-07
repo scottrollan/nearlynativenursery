@@ -13,13 +13,13 @@ const Shipping = () => {
       </h3>
       <h6>
         Due to substantial increases in shipping costs, we find it necessary to
-        pass on the fuel surcharges that have been levied on us
+        pass on the fuel surcharges that have been levied on us.
       </h6>
       <h6>
-        Because of increased shipping costs, any plant or combination of plants
-        that will not fit into a 48" box, will automatically incur an additional
-        $11.00 surcharge to ship FedEx Ground. We are happy to give you an
-        estimated shipping rate when we receive your order.
+        Because of increased shipping costs, any plant, or combination of
+        plants, that will not fit into a 48" box will automatically incur an
+        additional $11.00 surcharge to ship FedEx Ground. We are happy to give
+        you an estimated shipping rate when we receive your order.
       </h6>
       <img src={FedExMap} alt="" className={styles.mapImg} />
       <Container style={{ margin: '3vh auto' }}>

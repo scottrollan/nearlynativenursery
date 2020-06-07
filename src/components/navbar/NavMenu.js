@@ -11,9 +11,11 @@ const NavMenu = () => {
   let history = useHistory();
   const [searchValue, setSearchValue] = useState('');
   const [form, setForm] = useState([]);
+  const [expanded, setExpanded] = useState(false);
 
-  const closeResults = () => {
+  const linkClicked = () => {
     $('#searchResultsNav').hide();
+    setExpanded(false);
   };
 
   const searchByName = async (event) => {
@@ -67,11 +69,12 @@ const NavMenu = () => {
   return (
     <Fragment>
       <AlertNoPlants />
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" expanded={expanded}>
         <Navbar.Brand style={{ maxHeight: '50px' }}>
           <img src={man} alt="" style={{ maxHeight: '50px' }} />
         </Navbar.Brand>
         <Navbar.Toggle
+          onClick={() => setExpanded(expanded ? false : 'expanded')}
           aria-controls="responsive-navbar-nav"
           style={{ backgroundColor: 'transparent !important' }}
         />
@@ -82,7 +85,7 @@ const NavMenu = () => {
               className="item nav-link"
               to="/"
               exact="true"
-              onClick={() => closeResults()}
+              onClick={() => linkClicked()}
             >
               Home
             </Link>
@@ -91,7 +94,7 @@ const NavMenu = () => {
               style={{ color: 'inherit' }}
               className="item nav-link"
               to="/contact"
-              onClick={() => closeResults()}
+              onClick={() => linkClicked()}
             >
               Contact
             </Link>
@@ -99,6 +102,7 @@ const NavMenu = () => {
               style={{ color: 'inherit' }}
               className="item nav-link"
               to="/search"
+              onClick={() => setExpanded(false)}
             >
               Search
             </Link>
@@ -107,21 +111,21 @@ const NavMenu = () => {
               <Link
                 className={[`${styles.dropdownLink} dropdown-item nav-link`]}
                 to="/about"
-                onClick={() => closeResults()}
+                onClick={() => linkClicked()}
               >
                 The Nursery
               </Link>
               <Link
                 className={[`${styles.dropdownLink} dropdown-item nav-link`]}
                 to="/hours"
-                onClick={() => closeResults()}
+                onClick={() => linkClicked()}
               >
                 Hours of Operation
               </Link>
               <Link
                 className={[`${styles.dropdownLink} dropdown-item nav-link`]}
                 to="/shipping"
-                onClick={() => closeResults()}
+                onClick={() => linkClicked()}
               >
                 Shipping Costs
               </Link>
@@ -129,7 +133,7 @@ const NavMenu = () => {
               <Link
                 className={[`${styles.dropdownLink} dropdown-item nav-link`]}
                 to="/location"
-                onClick={() => closeResults()}
+                onClick={() => linkClicked()}
               >
                 Location
               </Link>
@@ -189,7 +193,7 @@ const NavMenu = () => {
       </Navbar>
       <SearchResults
         resultsArray={form}
-        buttonFunction={() => closeResults()}
+        buttonFunction={() => linkClicked()}
         buttonText="Close"
       />
     </Fragment>
