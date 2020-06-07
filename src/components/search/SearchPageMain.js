@@ -66,7 +66,7 @@ const SearchPageMain = () => {
     } else {
       const tempForm = response.exactMatches.concat(response.partialMatches);
       setForm([...tempForm]);
-      $('#spinner').hidden();
+      $('#spinner').hide();
       history.push('/search');
       $('#searchResultsSearch').show();
       $('#searchArea').hide();

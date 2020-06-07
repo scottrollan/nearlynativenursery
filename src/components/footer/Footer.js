@@ -15,9 +15,30 @@ const Footer = () => {
           <p>776 McBride Rd | Fayetteville, GA | 30215</p>
         </a>
         <div className={styles.followUs}>
-          <i className="fab fa-facebook-square clickable"></i>
-          <i className="fab fa-instagram-square  clickable"></i>
-          <i className="fab fa-twitter-square  clickable"></i>
+          <a
+            href="https://www.facebook.com/NearlyNativeNursery/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--nnn-orange)' }}
+          >
+            <i className="fab fa-facebook-square clickable"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/nearlynativenursery/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--nnn-orange)' }}
+          >
+            <i className="fab fa-instagram-square  clickable"></i>
+          </a>
+          <a
+            href="https://twitter.com/nnativenursery"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--nnn-orange)' }}
+          >
+            <i className="fab fa-twitter-square  clickable"></i>
+          </a>
         </div>
         <div className={styles.copyright}>
           <i className="far fa-copyright" style={{ diplay: 'inline' }}></i>

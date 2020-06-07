@@ -1,6 +1,7 @@
 @import '../../styles/custom-media.scss';
+@import '../../styles/custom-properties.scss';
 
-.parallaxHome {
+.parallaxHours {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,8 +17,9 @@
   background-size: cover;
 }
 
-.parallaxHome > div {
+.parallaxHours > div {
   width: 45%;
+  text-align: center;
   border-radius: 10px;
   background: linear-gradient(
     to left,
@@ -42,8 +44,8 @@
   background-color: var(--lightest-gray);
 }
 
-@media screen and (max-width: $breakpoint-medium) {
-  .parallaxHome > div {
+@media screen and (max-width: $breakpoint-large) {
+  .parallaxHours > div {
     width: 88%;
   }
 }

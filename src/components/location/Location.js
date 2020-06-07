@@ -8,7 +8,7 @@ const Location = () => {
   return (
     <div className={styles.parallaxLocation} id="location">
       <Container>
-        <img src={name} alt="" style={{ width: '80%' }} />
+        <img src={name} alt="" style={{ width: '80%', marginBottom: '12px' }} />
         <h3>776 McBride Road</h3>
         <h3>Fayetteville, GA 30215</h3>
         <a

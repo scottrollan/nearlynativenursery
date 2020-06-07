@@ -21,7 +21,7 @@ const Contact = () => {
           <img src={pic} alt="" style={{ width: '100%' }} />
         </div>
         <div className={styles.address}>
-          <h4>Nearly Native Nursery</h4>
+          <h4 className={styles.responsiveTitle}>Nearly Native Nursery</h4>
           <p>776 McBride Rd</p>
           <p>Fayetteville, GA 30215</p>
           <p>Tel: 770-460-6284</p>

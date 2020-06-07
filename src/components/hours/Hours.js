@@ -6,9 +6,9 @@ import styles from './Hours.module.scss';
 
 const Hours = () => {
   return (
-    <div className={styles.parallaxHome} id="hours">
+    <div className={styles.parallaxHours} id="hours">
       <Container>
-        <img src={name} alt="" style={{ width: '80%' }} />
+        <img src={name} alt="" style={{ width: '80%', marginBottom: '12px' }} />
         <h4>is open from 9AM to 6PM</h4>
         <h4>Wednesday - Saturday</h4>
         <h6>closed Sunday, Monday and Tuesday</h6>

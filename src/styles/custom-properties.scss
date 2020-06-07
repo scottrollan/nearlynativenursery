@@ -1,3 +1,20 @@
+@import './custom-media.scss';
+
+:root {
+  /* Colors */
+  --lightest-gray: #f7f7f7;
+  --light-gray: #c3c3c3;
+  --medium-gray: #8b8b8b;
+  --dark-gray: #3f3f3f;
+  --overlay: rgba(0, 0, 0, 0.5);
+  --blue: #4183c4;
+  --normal-font-color: #212121;
+  --nnn-green: #198502;
+  --nnn-orange: #fe3600;
+  --close-button-size: 30px;
+  --close-button-line: 8px;
+}
+
 @mixin searchButton {
   width: 90%;
   max-width: 300px;
@@ -24,6 +41,7 @@
   text-align: center;
   padding: 8px 12px;
   margin: 0 auto;
+  border: none;
   border-radius: 4px;
   box-sizing: border-box;
   color: white;
@@ -34,5 +52,12 @@
     transform: translateY(2px);
     transform: scale(0.95);
     transition: translateY 0.2s ease-in-out;
+  }
+}
+
+@mixin mediumWidthPadding {
+  padding: 0 calc(50% - 368px);
+  @media screen and (max-width: $breakpoint-medium) {
+    padding: 0 3vw;
   }
 }

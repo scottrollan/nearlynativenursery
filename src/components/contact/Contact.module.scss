@@ -1,6 +1,5 @@
-@import '../../styles/custom-properties.css';
+@import '../../styles/custom-properties.scss';
 @import '../../styles/custom-media.scss';
-@import '../../styles/_Buttons';
 
 .contactGrid {
   display: grid;
@@ -32,16 +31,36 @@
 .contactButton {
   @include autoButton;
 }
+.nameEmailRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nameEmailInput {
+  width: 48%;
+}
 
 @media screen and (max-width: $breakpoint-medium) {
   .contactGrid {
     grid-template-columns: 200px 4vw auto;
-    grid-template-rows: 2vh auto auto auto;
+    grid-template-rows: 2vh auto auto auto auto;
     grid-template-areas:
       '.       .     .'
-      'form    form  form'
-      'hr      hr    hr'
-      'address pic   pic';
+      'form    form    form'
+      'hr      hr      hr'
+      'pic     pic     pic'
+      'address address address';
+  }
+  .responsiveTitle {
+    display: none;
+  }
+  .nameEmailRow {
+    flex-direction: column;
+    // justify-content: flex-start;
+  }
+  .nameEmailInput {
+    width: 100%;
   }
   .hr {
     visibility: visible;

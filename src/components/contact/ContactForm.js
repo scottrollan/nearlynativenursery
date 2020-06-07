@@ -70,9 +70,9 @@ function ContactForm() {
       <input type="hidden" name="form-name" value="contact" />
       <AlertMessageSent />
 
-      <Form.Row>
-        <Form.Group as={Col} controlId="formGridName">
-          <Form.Label>
+      <Form.Row className={styles.nameEmailRow}>
+        <Form.Group className={styles.nameEmailInput}>
+          <Form.Label style={{ width: '100%' }}>
             Your Name:{' '}
             <Form.Control
               type="text"
@@ -84,8 +84,8 @@ function ContactForm() {
             />
           </Form.Label>
         </Form.Group>
-        <Form.Group>
-          <Form.Label>
+        <Form.Group className={styles.nameEmailInput}>
+          <Form.Label style={{ width: '100%' }}>
             Your Email:{' '}
             <Form.Control
               type="email"
