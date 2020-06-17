@@ -75,7 +75,9 @@ const PlantModal = (props) => {
         <p
           style={{
             display:
-              props.note === undefined || props.notes === '' ? 'none' : inherit,
+              props.notes === undefined || props.notes === ''
+                ? 'none'
+                : inherit,
           }}
         >
           Note: {props.notes}
