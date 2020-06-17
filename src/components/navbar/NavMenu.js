@@ -19,6 +19,7 @@ const NavMenu = () => {
   };
 
   const searchByName = async (event) => {
+    setExpanded(false);
     $('#searchResultsSearch').hide();
     event.preventDefault();
     const element1 = $('#resultsArea');
@@ -55,14 +56,14 @@ const NavMenu = () => {
       $('#resultsAreaNav').hide();
       history.push('/search');
       $('#searchArea').show();
-      $('#spinner').hide();
+      $('#spinner').css('display', 'none');
     } else {
       setForm([...response]);
       history.push('/search');
       $('#searchArea').hide();
       $('#searchResultsNav').show();
       window.location.href = '#searchResultsNav';
-      $('#spinner').hide();
+      $('#spinner').css('display', 'none');
     }
   };
 

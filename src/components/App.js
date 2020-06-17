@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './home/Home';
 import About from './about/About';
 import Contact from './contact/Contact';
@@ -16,15 +16,9 @@ function App() {
   return (
     <React.Fragment>
       <div className={`${styles.App}`}>
-        <BrowserRouter>
+        <Router>
           <NavMenu />
           <Switch>
-            {/* <Route
-              path="/someobscurenamethatnobodywillmmistakenlyenter"
-              component={NavMenu}
-            >
-              Nav
-            </Route> */}
             <Route path="/" exact component={Home}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/contact" component={Contact}></Route>
@@ -34,8 +28,7 @@ function App() {
             <Route path="/shipping" component={Shipping}></Route>
             <Route path="/location" component={Location}></Route>
           </Switch>
-        </BrowserRouter>
-        {/* <SearchResults style={{ display: 'none' }} /> */}
+        </Router>
         <div className={styles.push}></div>
       </div>
       <Footer />

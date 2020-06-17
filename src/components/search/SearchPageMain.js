@@ -14,7 +14,7 @@ const SearchPageMain = () => {
   const history = useHistory();
 
   const searchNow = async (query) => {
-    $('#spinner').show();
+    $('#spinner').css('display', 'flex');
     setForm([]); //resets form for new search
 
     const sanityClient = require('@sanity/client');
@@ -32,10 +32,10 @@ const SearchPageMain = () => {
       $('#alertNoPlants').css('display', 'flex');
       $('#alertNoPlants').delay(1500).fadeOut(1000);
       $('#resultsArea').hide();
-      $('#spinner').hide();
+      $('#spinner').css('display', 'none');
     } else {
       setForm([...response]);
-      $('#spinner').hide();
+      $('#spinner').css('display', 'none');
       history.push('/search');
       $('#searchResultsSearch').show();
       $('#searchArea').hide();
@@ -45,7 +45,7 @@ const SearchPageMain = () => {
   };
 
   const searchNameNow = async (query) => {
-    $('#spinner').show();
+    $('#spinner').css('display', 'flex');
     setForm([]); //resets form for new search
 
     const sanityClient = require('@sanity/client');
@@ -62,11 +62,11 @@ const SearchPageMain = () => {
       $('#alertNoPlants').show();
       $('#alertNoPlants').delay(1500).fadeOut(1000);
       $('#resultsArea').hide();
-      $('#spinner').hidden();
+      $('#spinner').css('display', 'none');
     } else {
       const tempForm = response.exactMatches.concat(response.partialMatches);
       setForm([...tempForm]);
-      $('#spinner').hide();
+      $('#spinner').css('display', 'none');
       history.push('/search');
       $('#searchResultsSearch').show();
       $('#searchArea').hide();

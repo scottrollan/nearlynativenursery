@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import styles from './About.module.scss';
 import jimDebi from '../../media/jimDebi.jpg';
+import butterfly from '../../media/monarch.gif';
 import name from '../../media/N3nameTransparent.png';
 
 const About = () => {
@@ -43,6 +44,9 @@ const About = () => {
         array of gorgeous native plants available for you. We hope that you find
         our site interesting and educational!
       </p>
+      <div className={styles.butterflyWrapper}>
+        <img src={butterfly} alt="" className={styles.flier} />
+      </div>
     </Container>
   );
 };

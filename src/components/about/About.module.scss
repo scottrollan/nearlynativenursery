@@ -1,9 +1,11 @@
 @import '../../styles/custom-properties.scss';
+@import '../../styles/custom-media.scss';
 
 .about {
-  text-align: justify;
+  text-align: center;
 }
 .about > p {
+  text-align: justify;
   font-size: medium;
 }
 .figure {
@@ -16,4 +18,27 @@
 
 .figure > img {
   border-radius: 1rem;
+}
+.butterflyWrapper {
+  width: 100vw;
+
+  height: auto;
+}
+.flier {
+  width: $butterfly-width;
+  animation: fly 10s linear infinite;
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX($butterfly-width);
+  }
+
+  98% {
+    transform: translateX(1000vw);
+  }
+
+  100% {
+    transform: translateX($butterfly-width);
+  }
 }

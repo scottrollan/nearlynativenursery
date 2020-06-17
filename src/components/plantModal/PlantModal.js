@@ -37,6 +37,16 @@ const PlantModal = (props) => {
           <h5>
             {props.botanicalName} {props.variety}
           </h5>
+          <h6
+            style={{
+              display:
+                props.regionalName === undefined || props.regionalName === ''
+                  ? 'none'
+                  : inherit,
+            }}
+          >
+            Regionally known as <i>{props.regionalName}</i>
+          </h6>
         </div>
         <div className={styles.imageWrapper}>
           {props.hasUniqueImage ? (
@@ -61,6 +71,14 @@ const PlantModal = (props) => {
         <p className={styles.modalDescr}>
           {props.description} Thrives from zone {props.lowZone} to zone{' '}
           {props.highZone}.
+        </p>
+        <p
+          style={{
+            display:
+              props.note === undefined || props.notes === '' ? 'none' : inherit,
+          }}
+        >
+          Note: {props.notes}
         </p>
         <Container>
           <Row className={'show-grid'}>
@@ -120,6 +138,16 @@ const PlantModal = (props) => {
               ))}
             </Col>
           </Row>
+          <p
+            style={{
+              display:
+                props.purchaseNote === undefined || props.purchaseNotes === ''
+                  ? 'none'
+                  : inherit,
+            }}
+          >
+            {props.purchaseNotes}
+          </p>
         </Container>
         <div className={styles.modalFooter}>
           <Button
