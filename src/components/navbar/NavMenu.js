@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form } from 'react-bootstrap';
 import $ from 'jquery';
+import Spinner from '../popup/Spinner';
 import AlertNoPlants from '../popup/AlertNoPlants';
 import SearchResults from '../search/SearchResultsNav';
 import man from '../../media/N3man.png';
@@ -19,6 +20,7 @@ const NavMenu = () => {
   };
 
   const searchByName = async (event) => {
+    $('#spinner').css('display', 'flex');
     setExpanded(false);
     $('#searchResultsSearch').hide();
     event.preventDefault();
@@ -56,20 +58,21 @@ const NavMenu = () => {
       $('#resultsAreaNav').hide();
       history.push('/search');
       $('#searchArea').show();
-      $('#spinner').css('display', 'none');
+      $('#spinner').delay(1500).css('display', 'none');
     } else {
       setForm([...response]);
       history.push('/search');
       $('#searchArea').hide();
       $('#searchResultsNav').show();
       window.location.href = '#searchResultsNav';
-      $('#spinner').css('display', 'none');
+      $('#spinner').delay(1500).css('display', 'none');
     }
   };
 
   return (
     <Fragment>
       <AlertNoPlants />
+      <Spinner />
       <Navbar bg="light" expand="lg" expanded={expanded}>
         <Navbar.Brand style={{ maxHeight: '50px' }}>
           <img src={man} alt="" style={{ maxHeight: '50px' }} />

@@ -42,7 +42,7 @@ const PlantModal = (props) => {
               display:
                 props.regionalName === undefined || props.regionalName === ''
                   ? 'none'
-                  : inherit,
+                  : 'inherit',
             }}
           >
             Regionally known as <i>{props.regionalName}</i>
@@ -77,7 +77,7 @@ const PlantModal = (props) => {
             display:
               props.notes === undefined || props.notes === ''
                 ? 'none'
-                : inherit,
+                : 'inherit',
           }}
         >
           Note: {props.notes}
@@ -145,7 +145,7 @@ const PlantModal = (props) => {
               display:
                 props.purchaseNote === undefined || props.purchaseNotes === ''
                   ? 'none'
-                  : inherit,
+                  : 'inherit',
             }}
           >
             {props.purchaseNotes}

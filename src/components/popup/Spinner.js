@@ -5,12 +5,7 @@ import styles from './Spinner.module.scss';
 const Spinner = () => {
   return (
     <div id="spinner" className={styles.spinnerDiv}>
-      <figure className={styles.fadeIn}>
-        <img src={PineTree} alt="" />
-        <figcaption style={{ color: 'var(--lightest-gray)' }}>
-          ...searching...
-        </figcaption>
-      </figure>
+      <img src={PineTree} alt="" />
     </div>
   );
 };
