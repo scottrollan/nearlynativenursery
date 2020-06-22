@@ -172,11 +172,11 @@ const NavMenu = () => {
               </a>
               <a
                 className={[`${styles.dropdowna} dropdown-item nav-link`]}
-                href="https://garivers.org/"
+                href="https://www.chattahoocheeriverconservancy.org/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Georgia River Network
+                Chattahoochee River Conservancy
               </a>
             </NavDropdown>
             <Form
