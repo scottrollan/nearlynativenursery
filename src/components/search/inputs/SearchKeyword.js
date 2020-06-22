@@ -7,16 +7,20 @@ const SearchKeyword = (props) => {
 
   const searchByKeyword = (event) => {
     event.preventDefault();
-    let keyword = searchValue.toLowerCase();
+    let keywordArray = searchValue.toLowerCase().split(' ');
+    for (let i = 0; i < keywordArray.length; i++) {
+      keywordArray[i] = `description match "${keywordArray[i]}"`;
+    }
+    let keywordString = keywordArray.join(' && ');
 
-    const query = `*[description match "${keyword}" ]`;
+    const query = `*[${keywordString}]`;
 
     props.searchByKeyword(query);
   };
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h3>Search By a Single Keyword</h3>
+      <h3>Search By Exact Keyword</h3>
       <Form onSubmit={(event) => searchByKeyword(event)} className="nav-link">
         <input
           placeholder="ex: 'sandy' or 'woodland'"

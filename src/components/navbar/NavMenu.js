@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown, Form } from 'react-bootstrap';
 import $ from 'jquery';
 import Spinner from '../popup/Spinner';
 import AlertNoPlants from '../popup/AlertNoPlants';
-import SearchResults from '../search/SearchResultsNav';
+import SearchResults from '../search/results/SearchResultsNav';
 import man from '../../media/N3man.png';
 import styles from './NavMenu.module.scss';
 
@@ -39,6 +39,7 @@ const NavMenu = () => {
       .map((i) => i.replace(/^\w/, (c) => c.toUpperCase()))
       .join(' ');
     const filters = `botanicalName match "${botanicalInput}" || commonName match "${commonInput}" || botanicalName == "${botanicalInput}" || commonName == "${commonInput}"`;
+    // const query = `{"exactMatches": *[botanicalName == "${botanicalInput}" || commonName == "${commonInput}"], "partialMatches": *[botanicalName != "${botanicalInput}" && commonName != "${commonInput}" && (botanicalName match "${botanicalInput}" || commonName match "${commonInput}")]}`;
     setForm([]); //resets form for new search
 
     const sanityClient = require('@sanity/client');

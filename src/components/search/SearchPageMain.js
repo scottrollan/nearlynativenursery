@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import $ from 'jquery';
-import SearchNameInput from './SearchNameInput';
-import SearchResultsSearch from './SearchResultsSearch';
-import SearchKeyword from './SearchKeyword';
-import SearchConditionsInput from './SearchConditionsInput';
+import SearchNameInput from './inputs/SearchNameInput';
+import SearchResultsSearch from './results/SearchResultsSearch';
+import SearchKeyword from './inputs/SearchKeyword';
+import SearchConditionsInput from './inputs/SearchConditionsInput';
 import AlertNoPlants from '../popup/AlertNoPlants';
 import styles from './SearchPageMain.module.scss';
 

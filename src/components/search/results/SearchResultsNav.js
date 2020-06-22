@@ -1,18 +1,18 @@
 import React from 'react';
 import SearchResults from './SearchResults';
-import Spinner from '../popup/Spinner';
+import Spinner from '../../popup/Spinner';
 
-const SearchResultsSearch = (props) => {
+const SearchResultsNav = (props) => {
   return (
     <React.Fragment>
       <SearchResults
-        divId={'searchResultsSearch'}
+        divId={'searchResultsNav'}
         resultsArray={props.resultsArray}
-        buttonText="Return to Search"
+        buttonText="Close"
       />
       <Spinner />
     </React.Fragment>
   );
 };
 
-export default SearchResultsSearch;
+export default SearchResultsNav;

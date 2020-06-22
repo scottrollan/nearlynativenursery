@@ -42,10 +42,10 @@ const PlantModal = (props) => {
               display:
                 props.regionalName === undefined || props.regionalName === ''
                   ? 'none'
-                  : 'inherit',
+                  : 'block',
             }}
           >
-            Regionally known as <i>{props.regionalName}</i>
+            "<i>{props.regionalName}</i>"
           </h6>
         </div>
         <div className={styles.imageWrapper}>

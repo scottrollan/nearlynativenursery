@@ -7,7 +7,7 @@ import Hours from './hours/Hours';
 import Shipping from './shipping/Shipping';
 import Location from './location/Location';
 import SearchPageMain from './search/SearchPageMain';
-import SearchResults from './search/SearchResults';
+import SearchResults from './search/results/SearchResults';
 import styles from './App.module.scss';
 import NavMenu from './navbar/NavMenu';
 import Footer from './footer/Footer';
