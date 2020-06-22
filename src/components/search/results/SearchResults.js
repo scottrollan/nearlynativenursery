@@ -111,7 +111,12 @@ class SearchResults extends React.Component {
                         )}
                       </div>
                       <Card.Footer className={styles.cardFooter}>
-                        <Card.Title>
+                        <Card.Title
+                          style={{
+                            fontSize:
+                              p.botanicalName.length > 35 ? 'medium' : 'xlarge',
+                          }}
+                        >
                           {p.botanicalName} {p.variety}
                         </Card.Title>
                       </Card.Footer>

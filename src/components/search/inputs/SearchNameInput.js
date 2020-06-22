@@ -13,7 +13,7 @@ const SearchNameInput = (props) => {
       .split(' ')
       .map((i) => i.replace(/^\w/, (c) => c.toUpperCase()))
       .join(' ');
-    const query = `{"exactMatches": *[botanicalName == "${botanicalInput}" || commonName == "${commonInput}"], "partialMatches": *[botanicalName != "${botanicalInput}" && commonName != "${commonInput}" && (botanicalName match "${botanicalInput}" || commonName match "${commonInput}")]}`;
+    const query = `{"exactMatches": *[botanicalName == "${botanicalInput}" || commonName == "${commonInput}" || botanicalName match "${botanicalInput}*" || commonName match "${commonInput}*"], "partialMatches": *[botanicalName != "${botanicalInput}" && commonName != "${commonInput}" && !(botanicalName match "${botanicalInput}*") && !(commonName match "${commonInput}*") && (botanicalName match "${botanicalInput}" || commonName match "${commonInput}")]}`;
 
     props.searchByName(query);
   };

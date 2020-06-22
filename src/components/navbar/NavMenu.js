@@ -38,8 +38,8 @@ const NavMenu = () => {
       .split(' ')
       .map((i) => i.replace(/^\w/, (c) => c.toUpperCase()))
       .join(' ');
-    const filters = `botanicalName match "${botanicalInput}" || commonName match "${commonInput}" || botanicalName == "${botanicalInput}" || commonName == "${commonInput}"`;
-    // const query = `{"exactMatches": *[botanicalName == "${botanicalInput}" || commonName == "${commonInput}"], "partialMatches": *[botanicalName != "${botanicalInput}" && commonName != "${commonInput}" && (botanicalName match "${botanicalInput}" || commonName match "${commonInput}")]}`;
+    // const filters = `botanicalName match "${botanicalInput}" || commonName match "${commonInput}" || botanicalName == "${botanicalInput}" || commonName == "${commonInput}"`;
+    const query = `{"exactMatches": *[botanicalName == "${botanicalInput}" || commonName == "${commonInput}" || botanicalName match "${botanicalInput}*" || commonName match "${commonInput}*"], "partialMatches": *[botanicalName != "${botanicalInput}" && commonName != "${commonInput}" && !(botanicalName match "${botanicalInput}*") && !(commonName match "${commonInput}*")  && (botanicalName match "${botanicalInput}" || commonName match "${commonInput}")]}`;
     setForm([]); //resets form for new search
 
     const sanityClient = require('@sanity/client');
@@ -49,24 +49,24 @@ const NavMenu = () => {
       token: '',
       useCdn: true, // `false` if you want to ensure fresh data
     });
-    const query = `*[${filters}] | order(category asc) | order(botanicalName asc)`;
+    // const query = `*[${filters}] | order(category asc) | order(botanicalName asc)`;
 
     let response = await client.fetch(query);
-
+    const results = response.exactMatches.concat(response.partialMatches);
     if (response === undefined || response.length === 0) {
       $('#alertNoPlants').css('display', 'flex');
       $('#alertNoPlants').delay(1500).fadeOut(1000);
       $('#resultsAreaNav').hide();
       history.push('/search');
       $('#searchArea').show();
-      $('#spinner').delay(1500).css('display', 'none');
+      $('#spinner').css('display', 'none');
     } else {
-      setForm([...response]);
+      setForm([...results]);
       history.push('/search');
       $('#searchArea').hide();
       $('#searchResultsNav').show();
       window.location.href = '#searchResultsNav';
-      $('#spinner').delay(1500).css('display', 'none');
+      setTimeout(() => $('#spinner').css('display', 'none'), 1200);
     }
   };
 
