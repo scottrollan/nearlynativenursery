@@ -179,6 +179,14 @@ const NavMenu = () => {
               >
                 Chattahoochee River Conservancy
               </a>
+              <a
+                className={[`${styles.dropdowna} dropdown-item nav-link`]}
+                href="http://www.walterreeves.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                The Georgia Gardener
+              </a>
             </NavDropdown>
             <Form
               onSubmit={(event) => searchByName(event)}
