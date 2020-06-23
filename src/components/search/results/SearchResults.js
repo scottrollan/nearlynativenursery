@@ -35,7 +35,7 @@ class SearchResults extends React.Component {
           {this.props.resultsArray === null ||
           this.props.resultsArray.length === 0
             ? null
-            : this.props.resultsArray.map((p, index) => {
+            : this.props.resultsArray.map((p) => {
                 const modalId = p._id;
                 window['show' + modalId] = false;
                 let imageUrl = '';
@@ -69,7 +69,7 @@ class SearchResults extends React.Component {
                           p.commonName.length > 26 ? { fontSize: '20px' } : null
                         }
                       >
-                        {index + 1}. {p.commonName}
+                        {p.commonName}
                       </Card.Header>
                       <div
                         style={{
