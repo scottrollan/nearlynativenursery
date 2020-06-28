@@ -112,6 +112,9 @@ function ContactForm() {
             required
           />
         </Form.Label>
+        <Form.Group>
+          <Form.File name="fileUpload" label="Attach File (optional)" />
+        </Form.Group>
       </Form.Group>
       <Button className={styles.contactButton} type="submit">
         Send
