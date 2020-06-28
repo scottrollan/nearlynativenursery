@@ -17,6 +17,10 @@ const NavMenu = () => {
   const linkClicked = () => {
     $('#searchResultsNav').hide();
     setExpanded(false);
+    $('.dropdown-menu').removeClass('show');
+    $('.dropdown').removeClass('show');
+    $('.dropdown-toggle').attr('aria-expanded', false);
+    $('#about').attr('aria-expanded', false);
   };
 
   const searchByName = async (event) => {
@@ -112,7 +116,12 @@ const NavMenu = () => {
               Search
             </Link>
 
-            <NavDropdown title="About" className="item">
+            <NavDropdown
+              title="About"
+              className="item"
+              id="about"
+              // aria-expanded={aboutExpanded ? true : false}
+            >
               <Link
                 className={[`${styles.dropdownLink} dropdown-item nav-link`]}
                 to="/about"
@@ -127,13 +136,6 @@ const NavMenu = () => {
               >
                 Hours of Operation
               </Link>
-              <Link
-                className={[`${styles.dropdownLink} dropdown-item nav-link`]}
-                to="/shipping"
-                onClick={() => linkClicked()}
-              >
-                Shipping Costs
-              </Link>
 
               <Link
                 className={[`${styles.dropdownLink} dropdown-item nav-link`]}
@@ -142,6 +144,25 @@ const NavMenu = () => {
               >
                 Location
               </Link>
+              <NavDropdown
+                title="Ordering"
+                // className="dropdown-item nav-link"
+              >
+                <Link
+                  className={[`${styles.dropdownLink} dropdown-item nav-link`]}
+                  to="/shipping"
+                  onClick={() => linkClicked()}
+                >
+                  Shipping Costs
+                </Link>
+                <Link
+                  className={[`${styles.dropdownLink} dropdown-item nav-link`]}
+                  to="/orderForm"
+                  onClick={() => linkClicked()}
+                >
+                  Order Form
+                </Link>
+              </NavDropdown>
               <hr />
               <a
                 className={[`${styles.dropdowna} dropdown-item nav-link`]}

@@ -1,0 +1,13 @@
+@import '../../styles/custom-media.scss';
+@import '../../styles/custom-properties.scss';
+
+.orderFormWrapper {
+  width: 100%;
+  height: 68vh;
+  @include mediumWidthPadding;
+}
+
+.orderForm {
+  width: 100%;
+  height: 100%;
+}

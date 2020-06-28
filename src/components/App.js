@@ -8,6 +8,7 @@ import Shipping from './shipping/Shipping';
 import Location from './location/Location';
 import SearchPageMain from './search/SearchPageMain';
 import SearchResults from './search/results/SearchResults';
+import OrderForm from './orderForm/OrderForm';
 import styles from './App.module.scss';
 import NavMenu from './navbar/NavMenu';
 import Footer from './footer/Footer';
@@ -27,6 +28,7 @@ function App() {
             <Route path="/hours" component={Hours}></Route>
             <Route path="/shipping" component={Shipping}></Route>
             <Route path="/location" component={Location}></Route>
+            <Route path="/orderForm" component={OrderForm}></Route>
           </Switch>
         </Router>
         <div className={styles.push}></div>

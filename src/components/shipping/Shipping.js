@@ -24,14 +24,14 @@ const Shipping = () => {
       <img src={FedExMap} alt="" className={styles.mapImg} />
       <Container style={{ margin: '3vh auto' }}>
         <h4 style={{ textDecoration: 'underline' }}>
-          Total Shipping charges are Base Costs plus Fuel Surcharge
+          Total Shipping &#61; Base Costs &#43; Fuel Surcharge
         </h4>
         <Container
           className={styles.outlined}
           style={{ borderTop: '2px solid var(--normal-font-color)' }}
         >
           <h5 style={{ paddingTop: '5px' }}>
-            Boxes, Packaging &amp; Shipping Base Costs
+            Base Costs (boxes, packaging &amp; shipping)
           </h5>
           <Row style={{ borderTop: '1px solid var(--normal-font-color)' }}>
             <Col
