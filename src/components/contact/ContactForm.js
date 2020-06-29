@@ -9,7 +9,7 @@ function ContactForm() {
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [fileUpload, setFileUpload] = useState('');
+  const [fileUpload, setFileUpload] = useState(null);
 
   const encode = (data) => {
     const formData = new FormData();
@@ -20,12 +20,13 @@ function ContactForm() {
   };
 
   const handleSubmit = (e) => {
-    const data = { 'form-name': 'contact', name, email, message, fileUpload };
+    const data = { 'form-name': 'contact', name, email, message };
 
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'multipart/form-data; boundary=random' },
+      headers: { 'Content-Type': 'multipart/form-data' },
       body: encode(data),
+      fileUpload,
     })
       .then(() => {
         setStatus('Form Submission Successful!!');
@@ -34,6 +35,7 @@ function ContactForm() {
         setName('');
         setEmail('');
         setMessage('');
+        setFileUpload(null);
         $('#contactForm')[0].reset();
       })
       .catch((error) => {
