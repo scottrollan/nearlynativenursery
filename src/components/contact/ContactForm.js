@@ -71,7 +71,7 @@ const ContactForm = () => {
       <input type="hidden" name="form-name" value="contact" />
       <AlertMessageSent />
       <h2 style={{ color: 'var(--light-grey)', padding: '2vh 0' }}>
-        CONTACT BARRY
+        CONTACT US
       </h2>
       <div className={styles.nameEmailRow}>
         <Form.Control
