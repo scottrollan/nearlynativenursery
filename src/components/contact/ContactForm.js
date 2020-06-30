@@ -4,12 +4,11 @@ import styles from './Contact.module.scss';
 import AlertMessageSent from '../popup/AlertMessageSent';
 import $ from 'jquery';
 
-function ContactForm() {
+const ContactForm = () => {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [fileUpload, setFileUpload] = useState(null);
 
   const encode = (data) => {
     const formData = new FormData();
@@ -24,9 +23,8 @@ function ContactForm() {
 
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'multipart/form-data' },
+      // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
       body: encode(data),
-      fileUpload,
     })
       .then(() => {
         setStatus('Form Submission Successful!!');
@@ -35,7 +33,6 @@ function ContactForm() {
         setName('');
         setEmail('');
         setMessage('');
-        setFileUpload(null);
         $('#contactForm')[0].reset();
       })
       .catch((error) => {
@@ -58,9 +55,6 @@ function ContactForm() {
     if (name === 'message') {
       return setMessage(value);
     }
-    if (name === 'fileUpload') {
-      return setFileUpload(e.target.files[0]);
-    }
   };
 
   return (
@@ -68,6 +62,7 @@ function ContactForm() {
       onSubmit={handleSubmit}
       action="/thank-you/"
       style={{
+        minHeight: '100vh',
         width: '100%',
         padding: '0 calc(50% - 320px',
       }}
@@ -75,57 +70,50 @@ function ContactForm() {
     >
       <input type="hidden" name="form-name" value="contact" />
       <AlertMessageSent />
+      <h2 style={{ color: 'var(--light-grey)', padding: '2vh 0' }}>
+        CONTACT BARRY
+      </h2>
+      <div className={styles.nameEmailRow}>
+        <Form.Control
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleChange}
+          placeholder="Your name"
+          required
+          className={styles.input}
+        />
 
-      <Form.Row className={styles.nameEmailRow}>
-        <Form.Group className={styles.nameEmailInput}>
-          <Form.Label style={{ width: '100%' }}>
-            Your Name:{' '}
-            <Form.Control
-              type="text"
-              name="name"
-              value={name}
-              onChange={handleChange}
-              placeholder="Enter name"
-              required
-            />
-          </Form.Label>
-        </Form.Group>
-        <Form.Group className={styles.nameEmailInput}>
-          <Form.Label style={{ width: '100%' }}>
-            Your Email:{' '}
-            <Form.Control
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleChange}
-              placeholder="Enter email"
-              required
-            />
-          </Form.Label>
-        </Form.Group>
-      </Form.Row>
-      <Form.Group controlId="Textarea" style={{ width: '100%' }}>
-        <Form.Label style={{ width: '100%' }}>
-          Message:{' '}
-          <Form.Control
-            name="message"
-            value={message}
-            onChange={handleChange}
-            as="textarea"
-            rows="5"
-            type="textarea"
-            placeholder="Your message..."
-            required
-          />
-        </Form.Label>
-        <Form.Group>
-          <Form.File name="fileUpload" label="Attach File (optional)" />
-        </Form.Group>
-      </Form.Group>
-      <Button className={styles.contactButton} type="submit">
+        <Form.Control
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+          placeholder="Your email"
+          required
+          className={styles.input}
+        />
+      </div>
+
+      <Form.Control
+        as="textarea"
+        name="message"
+        value={message}
+        onChange={handleChange}
+        rows="10"
+        placeholder="Your message..."
+        required
+        className={styles.input}
+      />
+      {/* </Form.Group> */}
+      <Button
+        variant="secondary"
+        className={styles.contactButton}
+        type="submit"
+      >
         Send
       </Button>
     </Form>
   );
-}
+};
 export default ContactForm;
