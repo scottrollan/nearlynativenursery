@@ -10,7 +10,6 @@ const Contact = () => {
   return (
     <Container id="contact">
       <AlertMessageSent />
-      <h4>Contact Us</h4>
       <div className={styles.contactGrid}>
         <div className={styles.form}>
           <ContactForm />

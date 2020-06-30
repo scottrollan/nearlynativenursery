@@ -81,7 +81,7 @@ const ContactForm = () => {
           onChange={handleChange}
           placeholder="Your name"
           required
-          className={styles.input}
+          className={styles.nameEmailInput}
         />
 
         <Form.Control
@@ -91,7 +91,7 @@ const ContactForm = () => {
           onChange={handleChange}
           placeholder="Your email"
           required
-          className={styles.input}
+          className={styles.textArea}
         />
       </div>
 
@@ -103,7 +103,7 @@ const ContactForm = () => {
         rows="10"
         placeholder="Your message..."
         required
-        className={styles.input}
+        className={styles.nameEmailInput}
       />
       {/* </Form.Group> */}
       <Button
